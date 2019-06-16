@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Javahiker&#39;s Homepage</title>
+  
+  <subtitle>每天积累一点点！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://javahikers.github.io/"/>
+  <updated>2019-06-16T00:07:30.424Z</updated>
+  <id>http://javahikers.github.io/</id>
+  
+  <author>
+    <name>liux</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo插入表格的多种方式</title>
+    <link href="http://javahikers.github.io/2019/06/15/hexo%E6%8F%92%E5%85%A5%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://javahikers.github.io/2019/06/15/hexo插入表格的多种方式/</id>
+    <published>2019-06-15T12:05:29.000Z</published>
+    <updated>2019-06-16T00:07:30.424Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Markdown插入表格"><a href="#Markdown插入表格" class="headerlink" title="Markdown插入表格"></a>Markdown插入表格</h1><h2 id="默认表格"><a href="#默认表格" class="headerlink" title="默认表格"></a>默认表格</h2><p>表头内容默认居中对齐，单元格内容默认左对齐，Markdown 代码:</p><pre><code>| 标题1 | 标题2 | 标题3 || ------ | ------ | ------ || 文本好短 | 文本不短也不长 | 文本好长文本好长文本好长 || 文本好长文本好长文本好长 | 文本好短 | 文本不短也不长 |</code></pre><p>显示效果：</p><table><thead><tr><th>标题1</th><th>标题2</th><th>标题2</th></tr></thead><tbody><tr><td>文本好短</td><td>文本不短也不长</td><td>文本好长文本好长文本好长</td></tr><tr><td>文本好长文本好长文本好长</td><td>文本好短</td><td>文本不短也不长</td></tr></tbody></table><h2 id="带有对齐格式的表格"><a href="#带有对齐格式的表格" class="headerlink" title="带有对齐格式的表格"></a>带有对齐格式的表格</h2><p>居左对齐，居中对齐，居右对齐，Markdown 代码:</p><pre><code>| 标题1 | 标题2 | 标题2 || :------ | :------: | ------: || 文本好短 | 文本不短也不长 | 文本好长文本好长文本好长 || 文本好长文本好长文本好长 | 文本好短 | 文本不短也不长 |</code></pre><p>显示效果：</p><table><thead><tr><th style="text-align:left">标题1</th><th style="text-align:center">标题2</th><th style="text-align:right">标题2</th></tr></thead><tbody><tr><td style="text-align:left">文本好短</td><td style="text-align:center">文本不短也不长</td><td style="text-align:right">文本好长文本好长文本好长</td></tr><tr><td style="text-align:left">文本好长文本好长文本好长</td><td style="text-align:center">文本好短</td><td style="text-align:right">文本不短也不长</td></tr></tbody></table><h2 id="Markdown关于表格的语法"><a href="#Markdown关于表格的语法" class="headerlink" title="Markdown关于表格的语法"></a>Markdown关于表格的语法</h2><ul><li>默认标题居中对齐，内容居左对齐</li><li>:-内容和标题栏居左对齐，:-:内容和标题栏居中对齐，-:内容和标题栏居右对齐</li><li>| - :之间多余的空格会被忽略，-的数量至少一个</li><li>内容和|之间多余的空格会被忽略</li></ul><hr><h1 id="通过html的table标签插入表格"><a href="#通过html的table标签插入表格" class="headerlink" title="通过html的table标签插入表格"></a>通过html的table标签插入表格</h1><h2 id="html写法"><a href="#html写法" class="headerlink" title="html写法"></a>html写法</h2><pre><code>&lt;table&gt;  &lt;tr&gt;    &lt;th&gt;标题1&lt;/th&gt;    &lt;th&gt;标题2&lt;/th&gt;    &lt;th&gt;标题3&lt;/th&gt;  &lt;/tr&gt;  &lt;tr&gt;    &lt;td&gt;文本好短&lt;/td&gt;    &lt;td&gt;文本不短也不长&lt;/td&gt;    &lt;td&gt;文本好长文本好长文本好长&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;    &lt;td&gt;文本好长文本好长文本好长&lt;/td&gt;    &lt;td&gt;文本好短&lt;/td&gt;    &lt;td&gt;文本不短也不长&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;</code></pre><p>这种方式，表格上方会留出大量空白</p><h2 id="解决表格上方留出空白的办法"><a href="#解决表格上方留出空白的办法" class="headerlink" title="解决表格上方留出空白的办法"></a>解决表格上方留出空白的办法</h2><p>1.压缩表格</p><pre><code>&lt;table&gt;&lt;tr&gt;&lt;th&gt;标题1&lt;/th&gt;&lt;th&gt;标题2&lt;/th&gt;&lt;th&gt;标题3&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;文本好短&lt;/td&gt;&lt;td&gt;文本不短也不长&lt;/td&gt;&lt;td&gt;文本好长文本好长文本好长&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;文本好长文本好长文本好长&lt;/td&gt;&lt;td&gt;文本好短&lt;/td&gt;&lt;td&gt;文本不短也不长&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre><p>2.表格首部和尾部用如下字符串包裹</p><pre><code>{% raw %} table {% endraw %}</code></pre><h1 id="两种方式对比"><a href="#两种方式对比" class="headerlink" title="两种方式对比"></a>两种方式对比</h1><ul><li>markdown的语法写起来比较直观，用 | 分割表格，当表格内容比较少时适合用这种方法</li><li>当从页面拷贝的table内容比较多时，更适合用后面这种方式，可以省去转换的步骤</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://javahikers.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="使用教程" scheme="http://javahikers.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Hexo" scheme="http://javahikers.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo在文章插入aplayer音乐播放器</title>
+    <link href="http://javahikers.github.io/2019/06/15/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5aplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    <id>http://javahikers.github.io/2019/06/15/hexo在文章插入aplayer音乐播放器/</id>
+    <published>2019-06-15T09:41:14.000Z</published>
+    <updated>2019-06-16T00:07:30.418Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>喜欢下面的歌吗，可以点我哦，下面会教大家怎么使用</p><ul><li><p>我的个人歌单，不定期更新</p>    <div id="aplayer-MhvYuplg" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2844542446" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="150px" data-preload="auto" data-theme="#555"></div></li><li><p>抖音排行榜，每周三更新</p>    <div id="aplayer-rpTznYKX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2250011882" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="150px" data-preload="auto" data-theme="#555"></div></li><li><p>经典粤语合集</p>    <div id="aplayer-DiDrORZZ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2476663154" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="150px" data-preload="auto" data-theme="#555"></div></li></ul><hr><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="安装hexo-tag-aplayer插件"><a href="#安装hexo-tag-aplayer插件" class="headerlink" title="安装hexo-tag-aplayer插件"></a>安装hexo-tag-aplayer插件</h2><pre><code>$ npm install hexo-tag-aplayer --save</code></pre><h2 id="在Hexo配置文件-config-yml中设置"><a href="#在Hexo配置文件-config-yml中设置" class="headerlink" title="在Hexo配置文件_config.yml中设置"></a>在Hexo配置文件_config.yml中设置</h2><pre><code>aplayer:  meting: true</code></pre><p>接着就可以在文章中使用MetingJS播放器了</p><h2 id="在文章中引入模板"><a href="#在文章中引入模板" class="headerlink" title="在文章中引入模板"></a>在文章中引入模板</h2><p>1.歌曲模板</p><pre><code>{% meting "3986040" "netease" "song" "theme:#555" "mutex:true" "listmaxheight:340px" "preload:auto" %}</code></pre><p>2.歌单模板</p><pre><code>{% meting "627070825" "netease" "playlist" "theme:#555" "mutex:true" "listmaxheight:340px" "preload:auto" %}</code></pre><hr><h1 id="关于模板的选项列表"><a href="#关于模板的选项列表" class="headerlink" title="关于模板的选项列表"></a>关于模板的选项列表</h1><p><a href="https://github.com/metowolf/MetingJS" title="MetingJS的github" target="_blank" rel="noopener">MetingJS</a>是基于<a href="https://github.com/metowolf/Meting" title="Meting的github" target="_blank" rel="noopener">Meting API</a>的 APlayer 衍生播放器，引入3.0以上的MetingJS 后，播放器将支持对于QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放<br>模板的选项列表如下:</p>  <table>    <thead>     <tr>      <th>选项</th>      <th>默认值</th>      <th>描述</th>     </tr>    </thead>    <tbody>     <tr>      <td>id</td>      <td><strong>必须值</strong></td>      <td>歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>     </tr>     <tr>      <td>server</td>      <td><strong>必须值</strong></td>      <td>音乐平台: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code></td>     </tr>     <tr>      <td>type</td>      <td><strong>必须值</strong></td>      <td><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code></td>     </tr>     <tr>      <td>fixed</td>      <td><code>false</code></td>      <td>开启固定模式</td>     </tr>     <tr>      <td>mini</td>      <td><code>false</code></td>      <td>开启迷你模式</td>     </tr>     <tr>      <td>loop</td>      <td><code>all</code></td>      <td>列表循环模式：<code>all</code>, <code>one</code>,<code>none</code></td>     </tr>     <tr>      <td>order</td>      <td><code>list</code></td>      <td>列表播放模式： <code>list</code>, <code>random</code></td>     </tr>     <tr>      <td>volume</td>      <td>0.7</td>      <td>播放器音量</td>     </tr>     <tr>      <td>lrctype</td>      <td>0</td>      <td>歌词格式类型</td>     </tr>     <tr>      <td>listfolded</td>      <td><code>false</code></td>      <td>指定音乐播放列表是否折叠</td>     </tr>     <tr>      <td>storagename</td>      <td><code>metingjs</code></td>      <td>LocalStorage 中存储播放器设定的键名</td>     </tr>     <tr>      <td>autoplay</td>      <td><code>true</code></td>      <td>自动播放，移动端浏览器暂时不支持此功能</td>     </tr>     <tr>      <td>mutex</td>      <td><code>true</code></td>      <td>该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>     </tr>     <tr>      <td>listmaxheight</td>      <td><code>340px</code></td>      <td>播放列表的最大长度</td>     </tr>     <tr>      <td>preload</td>      <td><code>auto</code></td>      <td>音乐文件预载入模式，可选项： <code>none</code>, <code>metadata</code>, <code>auto</code></td>     </tr>     <tr>      <td>theme</td>      <td><code>#ad7a86</code></td>      <td>播放器风格色彩设置</td>     </tr>    </tbody>   </table><hr><h1 id="关于歌曲id-播放列表id-如何获取"><a href="#关于歌曲id-播放列表id-如何获取" class="headerlink" title="关于歌曲id  播放列表id 如何获取"></a>关于歌曲id  播放列表id 如何获取</h1><p>登录<a href="https://music.163.com/" title="点我进入网易云音乐官网" target="_blank" rel="noopener">网易云音乐</a>，搜索《一生所爱》，点击生成外链播放器。这时候会提示：由于版权保护，无法生成外链。不要着急，通过如下方式找到id</p><div><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2019/06/15/hexo在文章插入aplayer音乐播放器/01.png" alt title>                </div>                <div class="image-caption"></div>            </figure><br></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://javahikers.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="Hexo" scheme="http://javahikers.github.io/tags/Hexo/"/>
+    
+      <category term="安装部署" scheme="http://javahikers.github.io/tags/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git配置多个SSH-Key</title>
+    <link href="http://javahikers.github.io/2019/06/15/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key/"/>
+    <id>http://javahikers.github.io/2019/06/15/Git配置多个SSH-Key/</id>
+    <published>2019-06-14T22:42:09.000Z</published>
+    <updated>2019-06-16T00:07:30.417Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>当有多个git账号时，比如：</p><ul><li>一个gitee，用于公司内部的工作开发；</li><li>两个github，用于自己进行一些开发活动；</li></ul><hr><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="生成公钥和私钥对"><a href="#生成公钥和私钥对" class="headerlink" title="生成公钥和私钥对"></a>生成公钥和私钥对</h2><p>1.生成一个公司用的SSH-Key<br><code>$ ssh-keygen -t rsa -C &#39;xxxxx@company.com&#39; -f ~/.ssh/gitee_id_rsa</code><br>2.生成一个github用的SSH-Key<br><code>$ ssh-keygen -t rsa -C &#39;xxxxxone@qq.com&#39; -f ~/.ssh/github_id_rsaone</code><br>3.生成另外一个github用的SSH-Key<br><code>$ ssh-keygen -t rsa -C &#39;xxxxxtwo@qq.com&#39; -f ~/.ssh/github_id_rsatwo</code><br>命令运行完之后会在~/.ssh 目录下生成3对公钥和私钥。公钥末尾的值自动跟上面输入的邮箱对应。</p><pre><code>gitee_id_rsa gitee_id_rsa.pubgithub_id_rsaone github_id_rsaone.pubgithub_id_rsatwo github_id_rsatwo.pub</code></pre><hr><h2 id="配置config文件"><a href="#配置config文件" class="headerlink" title="配置config文件"></a>配置config文件</h2><p>在 ~/.ssh 目录下新建一个config文件，~对应windows下的用户目录，添加以下内容。<br>其中HostName为git服务器的域名，Host为下载代码时需要替换的域名。IdentityFile指定私钥的路径，私钥名称跟上面保持一致。</p><pre><code># giteeHost gitee.comHostName gitee.comPreferredAuthentications publickeyIdentityFile ~/.ssh/gitee_id_rsa# githubHost github.com.oneHostName github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/github_id_rsaone# githubHost github.com.twoHostName github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/github_id_rsatwo</code></pre><hr><h2 id="配置公钥到git-分别对应3个不同的账户"><a href="#配置公钥到git-分别对应3个不同的账户" class="headerlink" title="配置公钥到git,分别对应3个不同的账户"></a>配置公钥到git,分别对应3个不同的账户</h2><p>登录<a href="https://github.com/" title="github的网址" target="_blank" rel="noopener">github</a>，配置公钥</p><div align="center"><br><img src="/2019/06/15/Git配置多个SSH-Key/01.png" alt="不好啦，图片不见啦~~" title="每天进步一点点"><br></div><hr><h1 id="用ssh命令分别测试"><a href="#用ssh命令分别测试" class="headerlink" title="用ssh命令分别测试"></a>用ssh命令分别测试</h1><pre><code>$ ssh -T git@gitee.com$ ssh -T git@github.com.one$ ssh -T git@github.com.two</code></pre><p>这里以github为例，成功的话会返回下面内容</p><pre><code>Hi javahikers! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</code></pre><hr><h1 id="下载代码注意事项"><a href="#下载代码注意事项" class="headerlink" title="下载代码注意事项"></a>下载代码注意事项</h1><p>1.路径以http://开头，可以下载。提交代码时,会提示没有权限。<a href="https://github.com/javahikers/algorithms-studying" target="_blank" rel="noopener">代码地址</a></p><pre><code>git clone https://github.com/javahikers/algorithms-studying.git</code></pre><p>2.路径以git@ 开头，下载代码时会进行权限校验。只有登录<a href="https://github.com/" title="github的网址" target="_blank" rel="noopener">github</a>之后才能切换成git开头的路径。如果自己开发，推荐使用这种方式。<br>将github.com替换成config文件中配置的Host。<a href="https://github.com/javahikers/algorithms-studying" target="_blank" rel="noopener">代码地址</a></p><pre><code>git clone git@github.com.two:javahikers/algorithms-studying.git</code></pre><p>3.不变更路径会提示没有权限下载</p><pre><code>$ git clone git@github.com:javahikers/algorithms-studying.gitCloning into &apos;algorithms-studying&apos;...git@github.com: Permission denied (publickey).fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists.</code></pre><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://javahikers.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="安装部署" scheme="http://javahikers.github.io/tags/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="git" scheme="http://javahikers.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA搭建maven多模块module项目</title>
+    <link href="http://javahikers.github.io/2019/06/14/IDEA%E6%90%AD%E5%BB%BAmaven%E5%A4%9A%E6%A8%A1%E5%9D%97module%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/</id>
+    <published>2019-06-13T22:20:23.000Z</published>
+    <updated>2019-06-15T08:51:33.791Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>通过IDEA创建多模块项目，有时候需要树形结构，有的需要平行结构，下面将手把手教你如何创建多模块项目。</p><h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><h4 id="打开IDEA新建项目"><a href="#打开IDEA新建项目" class="headerlink" title="打开IDEA新建项目"></a>打开IDEA新建项目</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/01.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="用maven创建项目，点击next-进入下一步"><a href="#用maven创建项目，点击next-进入下一步" class="headerlink" title="用maven创建项目，点击next 进入下一步"></a>用maven创建项目，点击next 进入下一步</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/02.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="建立groupId-artifactId-version信息"><a href="#建立groupId-artifactId-version信息" class="headerlink" title="建立groupId,artifactId,version信息"></a>建立groupId,artifactId,version信息</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/03.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="建项目名与项目位置"><a href="#建项目名与项目位置" class="headerlink" title="建项目名与项目位置"></a>建项目名与项目位置</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/04.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="建好的项目目录如下，红框内的文件可以删除或是保留"><a href="#建好的项目目录如下，红框内的文件可以删除或是保留" class="headerlink" title="建好的项目目录如下，红框内的文件可以删除或是保留"></a>建好的项目目录如下，红框内的文件可以删除或是保留</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/05.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="删除多余的文件"><a href="#删除多余的文件" class="headerlink" title="删除多余的文件"></a>删除多余的文件</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/06.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h3 id="创建子模块，父子模块之间是树形结构"><a href="#创建子模块，父子模块之间是树形结构" class="headerlink" title="创建子模块，父子模块之间是树形结构"></a>创建子模块，父子模块之间是树形结构</h3><h4 id="新建模块"><a href="#新建模块" class="headerlink" title="新建模块"></a>新建模块</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/07.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="选择Maven-点Next"><a href="#选择Maven-点Next" class="headerlink" title="选择Maven,点Next"></a>选择Maven,点Next</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/08.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="选择父模块"><a href="#选择父模块" class="headerlink" title="选择父模块"></a>选择父模块</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/09.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="ArtifactId对应模块名称"><a href="#ArtifactId对应模块名称" class="headerlink" title="ArtifactId对应模块名称"></a>ArtifactId对应模块名称</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/10.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="填写子模块名称"><a href="#填写子模块名称" class="headerlink" title="填写子模块名称"></a>填写子模块名称</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/11.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="生成树形结构的父子模块"><a href="#生成树形结构的父子模块" class="headerlink" title="生成树形结构的父子模块"></a>生成树形结构的父子模块</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/12.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h3 id="创建子模块，父子模块之间是平行结构"><a href="#创建子模块，父子模块之间是平行结构" class="headerlink" title="创建子模块，父子模块之间是平行结构"></a>创建子模块，父子模块之间是平行结构</h3><h4 id="重复之前创建子模块的步骤，直到填写子模块名称-这一步，让子模块跟跟父模块处于平行的目录"><a href="#重复之前创建子模块的步骤，直到填写子模块名称-这一步，让子模块跟跟父模块处于平行的目录" class="headerlink" title="重复之前创建子模块的步骤，直到填写子模块名称 这一步，让子模块跟跟父模块处于平行的目录"></a>重复之前创建子模块的步骤，直到填写子模块名称 这一步，让子模块跟跟父模块处于平行的目录</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/13.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h4 id="生成平行结构的父子模块"><a href="#生成平行结构的父子模块" class="headerlink" title="生成平行结构的父子模块"></a>生成平行结构的父子模块</h4><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/14.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr><h3 id="IDEA删除模块，然后再创建时出现异常"><a href="#IDEA删除模块，然后再创建时出现异常" class="headerlink" title="IDEA删除模块，然后再创建时出现异常"></a>IDEA删除模块，然后再创建时出现异常</h3><p>删除模块，然后再创建相同名称的模块时，往往会提示：</p><pre><code>Maven:Failed to create a Maven project ‘…pom.xml’ already exists in VFS</code></pre><ul><li><p>模块都已经删除了，怎么还提示我有相同的工程呢？</p></li><li><p>原因，原先的那个Project其实还是在我们的电脑上，即VFS虚拟档案系统。</p></li><li><p>解决办法</p></li></ul><div align="center"><br><img src="/2019/06/14/IDEA搭建maven多模块module项目/15.png" alt="不好啦，图片不见啦~~" title="谢谢阅读"><br></div><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://javahikers.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="IntelliJ-IDEA" scheme="http://javahikers.github.io/tags/IntelliJ-IDEA/"/>
+    
+      <category term="Maven" scheme="http://javahikers.github.io/tags/Maven/"/>
+    
+      <category term="使用教程" scheme="http://javahikers.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客引入图片</title>
+    <link href="http://javahikers.github.io/2019/06/12/hexo%E5%8D%9A%E5%AE%A2%E5%BC%95%E5%85%A5%E5%9B%BE%E7%89%87/"/>
+    <id>http://javahikers.github.io/2019/06/12/hexo博客引入图片/</id>
+    <published>2019-06-12T13:01:23.000Z</published>
+    <updated>2019-06-15T08:51:33.816Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很多时候图片比文字更有说服力，但是如何引入呢？图片放什么地方呢？其实不用借助七牛。</p><hr><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol><li>将_config.yml里的post_asset_folder设置为true<br><code>post_asset_folder: true</code></li><li>在hexo目录下执行:<br><code>npm install hexo-asset-image --save</code></li><li>在hexo目录下执行:<br><code>hexo n &quot;博客名&quot;</code><br>_post目录下会生成一个名称为”博客名.md”的博客，同时也会生成一个与博客同名的文件夹”博客名”</li><li>将要上传的图片放到博客对应的文件夹下，然后在博客中使用markdown的格式引入图片<br><code>![提示信息](博客名/图片名.jpg)</code><br>提醒：这种方法只是单纯把图片显示出来，如果图片很大的话就会铺满屏幕或者超高，排版上不好看</li></ol><ul><li>通过img标签控制宽高<br><code>&lt;img src=&quot;hexo博客引入图片/Daniel.jpg&quot; width=&quot;460px&quot; height=&quot;690px&quot; /&gt;</code></li><li>通过 div 标签和 align 属性控制对齐方式<br><code>&lt;div align=&quot;center&quot;&gt;</code><br><code>&lt;img src=&quot;hexo博客引入图片/Daniel.jpg&quot; width=&quot;460px&quot; height=&quot;690px&quot; /&gt;</code><br><code>&lt;/div&gt;</code></li></ul><ol start="5"><li>hexo g部署之后，进入public\2019\06\12\博客名\index.html文件中查看<br>html标签内的语句是<code>&lt;img src=&quot;2019/06/12/博客名/图片名.jpg&quot;&gt;</code><br>而不是<code>&lt;img src=&quot;博客名/图片名.jpg&gt;</code></li><li>这里碰到一个问题，无论本地还是线上，生成的index.html生成的img标签是<code>&lt;img src=&quot;/.io//图片名.jpg&quot;&gt;</code>，怀疑是hexo-asset-image版本的问题。查看我的hexo-asset-image版本是1.0.0，选择降低版本后问题解决<br><code>npm install hexo-asset-image@0.0.3 --save</code></li></ol><hr><p>来张Daniel的帅照~~~</p><div align="center"><br><img src="/2019/06/12/hexo博客引入图片/Daniel.jpg" width="460px" height="690px" alt="不好啦，图片不见啦~~" title="你是我的粉丝吗"><br></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://javahikers.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="Hexo" scheme="http://javahikers.github.io/tags/Hexo/"/>
+    
+      <category term="安装部署" scheme="http://javahikers.github.io/tags/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何解决IDEA启动过慢的问题</title>
+    <link href="http://javahikers.github.io/2019/05/05/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3IDEA%E5%90%AF%E5%8A%A8%E8%BF%87%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://javahikers.github.io/2019/05/05/如何解决IDEA启动过慢的问题/</id>
+    <published>2019-05-05T12:33:15.000Z</published>
+    <updated>2019-06-15T08:51:33.821Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="找到配置文件"><a href="#找到配置文件" class="headerlink" title="找到配置文件"></a>找到配置文件</h1><p>idea的bin目录下有个.vmoptions后缀结尾的文件，请打开。<br>32位的对应idea.exe.vmoptions，64位的对应idea64.exe.vmoptions</p><h1 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h1><p>-server<br>-Xms2g<br>-Xmx2g<br>-XX:ReservedCodeCacheSize=240m<br>-XX:+UseConcMarkSweepGC<br>-XX:SoftRefLRUPolicyMSPerMB=50<br>-ea<br>-Dsun.io.useCanonCaches=false<br>-Djava.net.preferIPv4Stack=true<br>-Djdk.http.auth.tunneling.disabledSchemes=””<br>-XX:+HeapDumpOnOutOfMemoryError<br>-XX:-OmitStackTraceInFastThrow<br>-javaagent:D:\idea2018\ideaIU-2018.3.win\bin\JetbrainsIdesCrack-3.4-release-enc.jar</p><h1 id="程序使用内存设置"><a href="#程序使用内存设置" class="headerlink" title="程序使用内存设置"></a>程序使用内存设置</h1><p>-Xms用来设置程序初始化时内存栈的大小，增加这个值会使程序的启动性能会得到提高<br>-Xmx用来设置程序能够使用的最大内存，这个值不要设置超过机器的内存，笔者认为，在大多数情况下,把Xmx值设置在2g和3g之间是最佳的。这里统一设置成2g</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="软件相关" scheme="http://javahikers.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="IntelliJ-IDEA" scheme="http://javahikers.github.io/tags/IntelliJ-IDEA/"/>
+    
+      <category term="安装部署" scheme="http://javahikers.github.io/tags/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown简明使用方法</title>
+    <link href="http://javahikers.github.io/2019/05/04/markdown%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://javahikers.github.io/2019/05/04/markdown简明使用方法/</id>
+    <published>2019-05-04T13:34:16.000Z</published>
+    <updated>2019-06-15T08:51:33.819Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>一行语法对应一行示例,学会之后即可轻松写出高大上的文档。本人使用sublime编写，只为简洁。</p><hr><h1 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h1><h2 id="斜体，单星号或单下划线，可跨行"><a href="#斜体，单星号或单下划线，可跨行" class="headerlink" title="斜体，单星号或单下划线，可跨行"></a>斜体，单星号或单下划线，可跨行</h2><p>*作者最新文章*<br><em>作者最新文章</em><br>_机器监测员工绩效、发出解雇指令_<br><em>机器监测员工绩效、发出解雇指令</em><br>_机器监测员工绩<br>效、发出解雇指令_<br><em>机器监测员工绩<br>效、发出解雇指令</em></p><h2 id="粗体，双星号或双下划线，可跨行"><a href="#粗体，双星号或双下划线，可跨行" class="headerlink" title="粗体，双星号或双下划线，可跨行"></a>粗体，双星号或双下划线，可跨行</h2><p>**北京延庆街头世园会气氛渐浓**<br><strong>北京延庆街头世园会气氛渐浓</strong><br>__亚马逊会员为什么会如此成功？__<br><strong>亚马逊会员为什么会如此成功？</strong><br>__亚马逊会员为<br>什么会如此成功？<em>__</em><br><strong>亚马逊会员为<br>什么会如此成功？</strong></p><hr><h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><h2 id="三个或更多-，必须单独一行"><a href="#三个或更多-，必须单独一行" class="headerlink" title="三个或更多*_-，必须单独一行"></a>三个或更多*_-，必须单独一行</h2><p>*** 3个*<br>___ 3个_<br>--- 3个-</p><hr><h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><h2 id="引用翻译成html就是-lt-blockquote-lt-blockquote"><a href="#引用翻译成html就是-lt-blockquote-lt-blockquote" class="headerlink" title="引用翻译成html就是&lt;blockquote>&lt;/blockquote>"></a>引用翻译成html就是&lt;blockquote>&lt;/blockquote></h2><p>>我是引用</p><blockquote><p>我是引用</p></blockquote><p>>我是引用<br> >>我是引用中的引用</p><blockquote><p>我是引用</p><blockquote><p>我是引用中的引用</p></blockquote></blockquote><hr><h1 id="标题：Setext方式"><a href="#标题：Setext方式" class="headerlink" title="标题：Setext方式"></a>标题：Setext方式</h1><p>大标题<br><em>===</em></p><h1 id="大标题"><a href="#大标题" class="headerlink" title="大标题"></a>大标题</h1><p>小标题<br>---</p><h2 id="小标题"><a href="#小标题" class="headerlink" title="小标题"></a>小标题</h2><hr><h1 id="标题：Atx方式"><a href="#标题：Atx方式" class="headerlink" title="标题：Atx方式"></a>标题：Atx方式</h1><p><em>#</em> 一级标题<br><em>##</em> 二级标题<br><em>###</em> 三级标题<br><em>####</em> 四级标题<br><em>#####</em> 五级标题<br><em>######</em> 六级标题</p><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><hr><h1 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h1><h2 id="，后面有空格"><a href="#，后面有空格" class="headerlink" title="-+*，后面有空格"></a>-+*，后面有空格</h2><p>- 无序列表<br>- 无序列表<br>- 无序列表</p><ul><li>无序列表</li><li>无序列表</li><li>无序列表</li></ul><p>+ 无序列表<br>+ 无序列表<br>+ 无序列表</p><ul><li>无序列表</li><li>无序列表</li><li>无序列表</li></ul><p>* 无序列表<br>* 无序列表<br>* 无序列表</p><ul><li>无序列表</li><li>无序列表</li><li>无序列表</li></ul><hr><h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1><h2 id="数字（可无序），点，-空格"><a href="#数字（可无序），点，-空格" class="headerlink" title="数字（可无序），点， 空格"></a>数字（可无序），点， 空格</h2><p>1. 有序列表<br>2. 有序列表<br>3. 有序列表<br>8. 有序列表</p><ol><li>有序列表</li><li>有序列表</li><li>有序列表</li><li>有序列表</li></ol><hr><h1 id="嵌套列表"><a href="#嵌套列表" class="headerlink" title="嵌套列表"></a>嵌套列表</h1><h2 id="可交叉使用，符号前后带空格"><a href="#可交叉使用，符号前后带空格" class="headerlink" title="-+*可交叉使用，符号前后带空格"></a>-+*可交叉使用，符号前后带空格</h2><p>-&nbsp;嵌套列表<br>&nbsp;+&nbsp;嵌套列表<br>&nbsp;+&nbsp;嵌套列表<br>&nbsp;&nbsp;-&nbsp;嵌套列表<br>&nbsp;&nbsp;&nbsp;*&nbsp;嵌套列表<br>-&nbsp;嵌套列表</p><ul><li>嵌套列表<ul><li>嵌套列表</li><li>嵌套列表</li></ul><ul><li>嵌套列表<ul><li>嵌套列表</li></ul></li></ul></li><li>嵌套列表</li></ul><hr><h1 id="文字超链：Inline方式"><a href="#文字超链：Inline方式" class="headerlink" title="文字超链：Inline方式"></a>文字超链：Inline方式</h1><p><code>[javahiker](https://javahikers.github.io &quot;javahiker的博客&quot;)</code><br><a href="https://javahikers.github.io" title="javahiker的博客">javahiker</a></p><hr><h1 id="图片超链"><a href="#图片超链" class="headerlink" title="图片超链"></a>图片超链</h1><p><code>![Github Javahiker](http://javahikers.github.io/2019/05/04/markdown简明使用方法/javahiker.jpg &quot;Javahiker&quot;)</code><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://javahikers.github.io/2019/05/04/markdown简明使用方法/javahiker.jpg" alt="Github Javahiker" title="Javahiker">                </div>                <div class="image-caption">Javahiker</div>            </figure><br>在hexo中引入图片的其他方法，请进入我的博文=&gt; <a href="https://javahikers.github.io/2019/06/12/hexo博客引入图片/" title="javahiker和你一起进步">hexo博客引入图片</a></p><hr><h1 id="索引超链接-Reference方式"><a href="#索引超链接-Reference方式" class="headerlink" title="索引超链接 Reference方式"></a>索引超链接 Reference方式</h1><h2 id="1，2可以是任意字符"><a href="#1，2可以是任意字符" class="headerlink" title="1，2可以是任意字符"></a>1，2可以是任意字符</h2><p><code>[javahiker][1]</code><br><code>![Github Javahiker][2]</code></p><p><code>[1]:http://javahikers.github.io</code><br><code>[2]:http://javahikers.github.io/2019/05/04/markdown简明使用方法/javahiker.jpg</code></p><hr><p><a href="http://javahikers.github.io">javahiker</a><br><img src="http://javahikers.github.io/2019/05/04/markdown简明使用方法/javahiker.jpg" alt="Github Javahiker"></p><hr><h1 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h1><h2 id="尖括号"><a href="#尖括号" class="headerlink" title="尖括号"></a>尖括号</h2><p><code>&lt;https://javahikers.github.io&gt;</code><br><code>&lt;675435543@qq.com&gt;</code></p><hr><p><a href="https://javahikers.github.io">https://javahikers.github.io</a><br><a href="mailto:&#54;&#55;&#53;&#x34;&#x33;&#x35;&#x35;&#52;&#x33;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#54;&#55;&#53;&#x34;&#x33;&#x35;&#x35;&#52;&#x33;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a></p><hr><h1 id="代码：行内代码"><a href="#代码：行内代码" class="headerlink" title="代码：行内代码"></a>代码：行内代码</h1><h2 id="使用左上角数字1左边的键盘"><a href="#使用左上角数字1左边的键盘" class="headerlink" title="使用左上角数字1左边的键盘"></a>使用左上角数字1左边的键盘</h2><p>`val s = “hello Markdown”`<br>`println( s )`<br><code>val s = &quot;hello Markdown&quot;</code><br><code>println( s )</code></p><hr><h1 id="代码：段落代码"><a href="#代码：段落代码" class="headerlink" title="代码：段落代码"></a>代码：段落代码</h1><h2 id="每行文字前加4个空格或者1个Tab"><a href="#每行文字前加4个空格或者1个Tab" class="headerlink" title="每行文字前加4个空格或者1个Tab"></a>每行文字前加4个空格或者1个Tab</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;val s = “hello Markdown”<br>&nbsp;&nbsp;&nbsp;&nbsp;println( s )</p><pre><code>val s = &quot;hello Markdown&quot;println( s )</code></pre><hr><h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>&lt;!– 注释 –&gt;</p><hr><h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><p>Markdown中的转义字符为\，转义的有：<br>\\ 反斜杠<br>\` 反引号<br>\* 星号<br>\_ 下划线<br>\{\} 大括号<br>\[\] 中括号<br>\(\) 小括号<br>\# 井号<br>\+ 加号<br>\- 减号<br>\. 英文句号<br>\! 感叹号</p><hr><h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><h2 id="文本中可直接用html标签"><a href="#文本中可直接用html标签" class="headerlink" title="文本中可直接用html标签"></a>文本中可直接用html标签</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://javahikers.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="使用教程" scheme="http://javahikers.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="总结" scheme="http://javahikers.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+</feed>
