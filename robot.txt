@@ -1,16 +1,16 @@
 # hexo robots.txt
 User-agent: *
 Allow: /
+Allow: /about/
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
  
-Disallow: /vendors/
+Disallow: /assets/
+Disallow: /img/
 Disallow: /js/
 Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
+Disallow: /links/
  
 Sitemap: http://javahikers.github.io/sitemap.xml
 Sitemap: http://javahikers.github.io/baidusitemap.xml
