@@ -2,6 +2,15 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -40,7 +49,8 @@
 <meta property="og:image" content="http://javahikers.github.io/2019/06/16/hexo个人博客收录谷歌的详细过程/002.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/16/hexo个人博客收录谷歌的详细过程/003.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/16/hexo个人博客收录谷歌的详细过程/004.png">
-<meta property="og:updated_time" content="2019-06-16T09:57:59.569Z">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/hexo个人博客收录谷歌的详细过程/005.png">
+<meta property="og:updated_time" content="2019-06-16T10:17:17.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo个人博客收录谷歌的详细过程">
 <meta name="twitter:description" content="登录google账户进入google search console，点击立即使用。                                                                                                              没有google账号，先注册一个google账号 有google账户，输入账户名和密码，登录goo">
@@ -179,7 +189,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#登录google账户"><span class="post-toc-number">1.</span> <span class="post-toc-text">登录google账户</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#验证网站所有权"><span class="post-toc-number">2.</span> <span class="post-toc-text">验证网站所有权</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式一，通过HTML文件验证"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">验证方式一，通过HTML文件验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式二，通过HTML标记验证"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">验证方式二，通过HTML标记验证</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#登录google账户"><span class="post-toc-number">1.</span> <span class="post-toc-text">登录google账户</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#验证网站所有权"><span class="post-toc-number">2.</span> <span class="post-toc-text">验证网站所有权</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式一，通过HTML文件验证"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">验证方式一，通过HTML文件验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式二，通过HTML标记验证"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">验证方式二，通过HTML标记验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#两种验证方式对比"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">两种验证方式对比</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用站点地图"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用站点地图</span></a></li></ol>
         </nav>
     </aside>
 
@@ -252,17 +262,16 @@ $ hexo d
 <ol>
 <li>复制标记里面的content的内容</li>
 <li>打开hexo-&gt;themes-&gt;indigo-&gt;_config.yml</li>
-<li><p>找到google_site_verification这个配置项</p>
+<li><p>找到google_site_verification这个配置项，配置content的内容</p>
 <pre><code>google_site_verification: 这里放content的内容
 </code></pre></li>
 <li><p>进入到工程目录，通过以下命令将hexo部署到个人网站</p>
 <pre><code>$ hexo clean 
 $ hexo g
-$ cp source/googlexxxx.html public/
 $ hexo d
 </code></pre></li>
 </ol>
-<p>说明:<br>我这里用的hexo主题是indigo的card分支，访问 <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">indigo</a></p>
+<p>说明:<br>我这里用的hexo主题是indigo，分支是card。下载indigo，请访问 <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">indigo</a><br>content的内容在下面哦</p>
 <p><div><br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -271,7 +280,20 @@ $ hexo d
                 <div class="image-caption"></div>
             </figure><br></div></p>
 <hr>
-
+<p>当看到下面这张图时，说明你两种方式都通过验证了，是不是很喜庆的画面！！</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/hexo个人博客收录谷歌的详细过程/005.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<h2 id="两种验证方式对比"><a href="#两种验证方式对比" class="headerlink" title="两种验证方式对比"></a>两种验证方式对比</h2><ul>
+<li>第1种方式每次部署前需要将googlexxxx.html拷贝到public目录，多了一个操作</li>
+<li>第2种方式配置好之后，以后就不用动了，超级简单，推荐使用这种方式哦</li>
+</ul>
+<h1 id="使用站点地图"><a href="#使用站点地图" class="headerlink" title="使用站点地图"></a>使用站点地图</h1>
         </div>
 
         <blockquote class="post-copyright">
@@ -279,7 +301,7 @@ $ hexo d
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-16T09:57:59.569Z" itemprop="dateUpdated">2019-06-16 17:57:59</time>
+    最后更新时间：<time datetime="2019-06-16T10:17:17.754Z" itemprop="dateUpdated">2019-06-16 18:17:17</time>
 </span><br>
 
 
