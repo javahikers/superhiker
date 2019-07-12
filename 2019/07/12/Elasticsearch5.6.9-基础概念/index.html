@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?1c9123028e7e5abc8faae65d030b496e"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="HHaynQDbWoNBIm4JhtWmdzRe5CweKqUcxGjs3zqzRQU">
+    
+    
+    
+    
+    <title>Elasticsearch5.6.9-基础概念 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Elasticsearch">
+    <meta name="description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+<meta name="keywords" content="Elasticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elasticsearch5.6.9-基础概念">
+<meta property="og:url" content="http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/index.html">
+<meta property="og:site_name" content="Javahiker&#39;s Homepage">
+<meta property="og:description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-12T14:39:04.414Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Elasticsearch5.6.9-基础概念">
+<meta name="twitter:description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+    
+        <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/logoliu.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brandliu.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logoliu.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liux</h5>
+          <a href="mailto:675435543@qq.com" title="675435543@qq.com" class="mail">675435543@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://github.com/javahikers" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Elasticsearch5.6.9-基础概念</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Elasticsearch5.6.9-基础概念</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-12T13:58:18.000Z" itemprop="datePublished" class="page-time">
+  2019-07-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/分布式/">分布式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#类比关系型数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">类比关系型数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他"><span class="post-toc-number">3.</span> <span class="post-toc-text">其他</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Elasticsearch5.6.9-基础概念" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Elasticsearch5.6.9-基础概念</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-12 21:58:18" datetime="2019-07-12T13:58:18.000Z" itemprop="datePublished">2019-07-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/分布式/">分布式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
+<li>集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识</li>
+<li>节点(node)：一个单独的 Elasticsearch 实例</li>
+<li>索引(index)：含有相同属性的文档集合</li>
+<li>类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型</li>
+<li>文档(document)：文档是可以被索引的基本数据单位</li>
+<li>分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 primary shard(主分片) 和 replica shard(简称replicas)。</li>
+<li>副本/备份(replicas)：拷贝一份分片就完成了分片的备份</li>
+</ul>
+<pre><code>思考题，分片和备份的好处
+分片的好处：当索引数据量很大时，会造成硬盘压力过大，搜索速度会成为瓶颈，
+这时候可以将索引分成多个分片，从而分摊压力。同时允许用户做水平扩展和拆
+分，以及分布式操作，可以提高搜索和其他操作的效率。
+备份的好处：主分片失败时，备份分片可以代替工作，从而提高es的可用性。备
+份分片还可以执行搜索操作，以分摊搜索压力。
+</code></pre><h1 id="类比关系型数据库"><a href="#类比关系型数据库" class="headerlink" title="类比关系型数据库"></a>类比关系型数据库</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">Elasticsearch</th>
+<th style="text-align:left">关系型数据库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">索引(index)</td>
+<td style="text-align:left">数据库(database)</td>
+</tr>
+<tr>
+<td style="text-align:left">类型(type)</td>
+<td style="text-align:left">表(table)</td>
+</tr>
+<tr>
+<td style="text-align:left">文档(document)</td>
+<td style="text-align:left">行记录(row)</td>
+</tr>
+<tr>
+<td style="text-align:left">字段(field)</td>
+<td style="text-align:left">列(column)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>es创建索引时，默认创建5个分片，每个分片1个备份。分片的数量只能在创建索引时指定，一旦创建就不能修改。备份的数量是可以动态修改的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-12T14:39:04.414Z" itemprop="dateUpdated">2019-07-12 22:39:04</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/07/12/Elasticsearch5.6.9-基础概念/" target="_blank" rel="external">http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://javahikers.github.io">
+            <img src="/img/logoliu.jpg" alt="liux">
+            liux
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/10/Elasticsearch5.6.9-安装使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Elasticsearch5.6.9-安装使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        爱你哟~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatliu.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatliu.jpg" data-alipay="/img/alipayliu.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liux &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3a0W7jMAwEwP7/T9+9HnCIs0tKTQuMnwojtTQKYDIkv77i68+L6/kz/97//zPPqyT3j114eHh4h7b+alszxuxpm/3g4eHh3ea9eqPmr+Zoscfnz47yjQUPDw/vR/KSkJBsMQkneHh4eL+X1waA5yckG8XDw8P7abxZCpsfyiYkzNJuPDw8vHu82aY/+/eV/h4eHh7euqueXLOCb1v2He4NDw8P7wJvls4mhYazA16rxBoPDw/vGu95mXaAIAckpdv2/lf7zeDh4eHFT0hesvvN5eXdtjDxplSBh4eHd4HX/tTPX/T76nL+tOIXAx4eHt6a1y68GSlok+YDJWA8PDy8C7w8wX1Or9sEvR3Dmu0NDw8P7zavLRPkLahZ6SEvJa8qLnh4eHhr3vOG9unvLNjMjgAPDw/vBq8dAtg3zOqzj/dTTzHg4eHhrXl58pontXnjP0/QCyoeHh7eBV6+cF62SI4g2VY7+IWHh4f3nbx8+VON/7xUkYeQIgbi4eHhrXn5FmeNqByfF0eKRhoeHh7eBV5SCDjVJNuUPDZNNTw8PLxTvCLjPlom2AeVqP2Gh4eHd43Xhoe2AJEn68lxF2ViPDw8vMu8tiSR4zer5HdeptR4eHh4385rSxJ5Mp0cQV7YHc5E4OHh4U2y2XogYDMuMFtr8/Xg4eHhneW1CXQ7WNC+0Nuk+U2JBA8PD+8CLy+nJg/NG2n70YE6scbDw8M7xJu1u9pRg1nwaJtkeHh4eN/D2zw6f7nnZeI2vd4XR/Dw8PBmvFPBIE+7Z2WLJDC8rLjg4eHhXeDNumebMdMEdqDQjIeHh/dR3ua/2kPMQ8KbYIOHh4f3UV6ezm6GA9rgFLXB8PDw8C7w8kJtGyRmT26P8s1kGR4eHt5R3qzlv1kgT4vPjmfh4eHhrXl/AQPY7gPwa2t6AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1277350950&web_id=1277350950')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
