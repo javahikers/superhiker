@@ -30,25 +30,27 @@ ga('send', 'pageview');
     
     
     
-    <title>Elasticsearch5.6.9-基础概念 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <title>Elasticsearch5.6.9-查询操作 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Elasticsearch">
-    <meta name="description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+    <meta name="description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
 <meta name="keywords" content="Elasticsearch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Elasticsearch5.6.9-基础概念">
-<meta property="og:url" content="http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/index.html">
+<meta property="og:title" content="Elasticsearch5.6.9-查询操作">
+<meta property="og:url" content="http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/index.html">
 <meta property="og:site_name" content="Javahiker&#39;s Homepage">
-<meta property="og:description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+<meta property="og:description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-12T14:39:04.414Z">
+<meta property="og:image" content="http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/001.png">
+<meta property="og:updated_time" content="2019-07-14T11:06:04.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elasticsearch5.6.9-基础概念">
-<meta name="twitter:description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+<meta name="twitter:title" content="Elasticsearch5.6.9-查询操作">
+<meta name="twitter:description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
+<meta name="twitter:image" content="http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/001.png">
     
         <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
     
@@ -136,7 +138,7 @@ ga('send', 'pageview');
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Elasticsearch5.6.9-基础概念</div>
+        <div class="flex-col header-title ellipsis">Elasticsearch5.6.9-查询操作</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -158,11 +160,11 @@ ga('send', 'pageview');
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Elasticsearch5.6.9-基础概念</h1>
+        <h1 class="title">Elasticsearch5.6.9-查询操作</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-07-12T13:58:18.000Z" itemprop="datePublished" class="page-time">
-  2019-07-12
+                <time datetime="2019-07-13T11:16:13.000Z" itemprop="datePublished" class="page-time">
+  2019-07-13
 </time>
 
 
@@ -183,17 +185,17 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#类比关系型数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">类比关系型数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他"><span class="post-toc-number">3.</span> <span class="post-toc-text">其他</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#建索引"><span class="post-toc-number">1.</span> <span class="post-toc-text">建索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#logstash建索引"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">logstash建索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-bulk-api-建立索引"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用_bulk api 建立索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列出所有索引"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">列出所有索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简单查询"><span class="post-toc-number">2.</span> <span class="post-toc-text">简单查询</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#条件查询"><span class="post-toc-number">3.</span> <span class="post-toc-text">条件查询</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#聚合查询"><span class="post-toc-number">4.</span> <span class="post-toc-text">聚合查询</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-Elasticsearch5.6.9-基础概念" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-Elasticsearch5.6.9-查询操作" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Elasticsearch5.6.9-基础概念</h1>
+        <h1 class="post-card-title">Elasticsearch5.6.9-查询操作</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-07-12 21:58:18" datetime="2019-07-12T13:58:18.000Z" itemprop="datePublished">2019-07-12</time>
+            <time class="post-time" title="2019-07-13 19:16:13" datetime="2019-07-13T11:16:13.000Z" itemprop="datePublished">2019-07-13</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/分布式/">分布式</a></li></ul>
@@ -208,49 +210,28 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
-<li>集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识</li>
-<li>节点(node)：一个单独的 Elasticsearch 实例</li>
-<li>索引(index)：含有相同属性的文档集合</li>
-<li>类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型</li>
-<li>文档(document)：文档是可以被索引的基本数据单位</li>
-<li>分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 primary shard(主分片) 和 replica shard(简称replicas)。</li>
-<li>副本/备份(replicas)：拷贝一份分片就完成了分片的备份</li>
+            <h1 id="建索引"><a href="#建索引" class="headerlink" title="建索引"></a>建索引</h1><h2 id="logstash建索引"><a href="#logstash建索引" class="headerlink" title="logstash建索引"></a>logstash建索引</h2><ul>
+<li>去<a href="https://www.json-generator.com" target="_blank" rel="noopener">json数据生成网站</a>生成的json格式的数据<br>生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击<a href="/download/generated.rar">下载数据</a></li>
+<li>通过logstash导入json数据到Elasticsearch，参考我的博文<a href="http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-logstash%E8%AF%BB%E5%8F%96json%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%88%B0Elasticsearch/">Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch</a></li>
 </ul>
-<pre><code>思考题，分片和备份的好处
-分片的好处：当索引数据量很大时，会造成硬盘压力过大，搜索速度会成为瓶颈，
-这时候可以将索引分成多个分片，从而分摊压力。同时允许用户做水平扩展和拆
-分，以及分布式操作，可以提高搜索和其他操作的效率。
-备份的好处：主分片失败时，备份分片可以代替工作，从而提高es的可用性。备
-份分片还可以执行搜索操作，以分摊搜索压力。
-</code></pre><h1 id="类比关系型数据库"><a href="#类比关系型数据库" class="headerlink" title="类比关系型数据库"></a>类比关系型数据库</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">Elasticsearch</th>
-<th style="text-align:left">关系型数据库</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">索引(index)</td>
-<td style="text-align:left">数据库(database)</td>
-</tr>
-<tr>
-<td style="text-align:left">类型(type)</td>
-<td style="text-align:left">表(table)</td>
-</tr>
-<tr>
-<td style="text-align:left">文档(document)</td>
-<td style="text-align:left">行记录(row)</td>
-</tr>
-<tr>
-<td style="text-align:left">字段(field)</td>
-<td style="text-align:left">列(column)</td>
-</tr>
-</tbody>
-</table>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>es创建索引时，默认创建5个分片，每个分片1个备份。分片的数量只能在创建索引时指定，一旦创建就不能修改。备份的数量是可以动态修改的。</p>
+<h2 id="使用-bulk-api-建立索引"><a href="#使用-bulk-api-建立索引" class="headerlink" title="使用_bulk api 建立索引"></a>使用_bulk api 建立索引</h2><ul>
+<li>去官网下载数据<a href="https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json" target="_blank" rel="noopener">accounts.json</a><pre><code>curl -O https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json
+</code></pre></li>
+<li>命令行建索引<pre><code>curl -H &apos;Content-Type: application/json&apos; -XPOST &apos;localhost:9200/javahikers/acount/_bulk?pretty&amp;refresh&apos; --data-binary &apos;@accounts.json&apos;
+</code></pre></li>
+<li>或者postman工具建索引<div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/07/13/Elasticsearch5.6.9-查询操作/001.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div>
 
+</li>
+</ul>
+<h2 id="列出所有索引"><a href="#列出所有索引" class="headerlink" title="列出所有索引"></a>列出所有索引</h2><pre><code>curl &apos;localhost:9200/_cat/indices?v&apos;
+</code></pre><p><a href="https://www.cnblogs.com/pilihaotian/p/5830754.html" target="_blank" rel="noopener">ElasticSearch 索引查询使用指南</a></p>
+<h1 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h1><h1 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h1><h1 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h1>
         </div>
 
         <blockquote class="post-copyright">
@@ -258,12 +239,12 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-12T14:39:04.414Z" itemprop="dateUpdated">2019-07-12 22:39:04</time>
+    最后更新时间：<time datetime="2019-07-14T11:06:04.123Z" itemprop="dateUpdated">2019-07-14 19:06:04</time>
 </span><br>
 
 
         
-        本文链接：<a href="/2019/07/12/Elasticsearch5.6.9-基础概念/" target="_blank" rel="external">http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/</a>
+        本文链接：<a href="/2019/07/13/Elasticsearch5.6.9-查询操作/" target="_blank" rel="external">http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/</a>
         
     </div>
     
@@ -294,7 +275,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -304,22 +285,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&via=http://javahikers.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/&via=http://javahikers.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -342,18 +323,18 @@ ga('send', 'pageview');
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/07/12/Elasticsearch5.6.9-基本用法/" id="post-prev" class="post-nav-link">
+      <a href="/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Elasticsearch5.6.9-基本用法</h4>
+        <h4 class="title">Elasticsearch5.6.9-elasticsearch集群安装为windows服务</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/07/10/Elasticsearch5.6.9-安装使用/" id="post-next" class="post-nav-link">
+      <a href="/2019/07/12/Elasticsearch5.6.9-基本用法/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Elasticsearch5.6.9-安装使用</h4>
+        <h4 class="title">Elasticsearch5.6.9-基本用法</h4>
       </a>
     </div>
   
@@ -452,7 +433,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -462,22 +443,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&via=http://javahikers.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/&via=http://javahikers.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -488,7 +469,7 @@ ga('send', 'pageview');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3a0W7jMAwEwP7/T9+9HnCIs0tKTQuMnwojtTQKYDIkv77i68+L6/kz/97//zPPqyT3j114eHh4h7b+alszxuxpm/3g4eHh3ea9eqPmr+Zoscfnz47yjQUPDw/vR/KSkJBsMQkneHh4eL+X1waA5yckG8XDw8P7abxZCpsfyiYkzNJuPDw8vHu82aY/+/eV/h4eHh7euqueXLOCb1v2He4NDw8P7wJvls4mhYazA16rxBoPDw/vGu95mXaAIAckpdv2/lf7zeDh4eHFT0hesvvN5eXdtjDxplSBh4eHd4HX/tTPX/T76nL+tOIXAx4eHt6a1y68GSlok+YDJWA8PDy8C7w8wX1Or9sEvR3Dmu0NDw8P7zavLRPkLahZ6SEvJa8qLnh4eHhr3vOG9unvLNjMjgAPDw/vBq8dAtg3zOqzj/dTTzHg4eHhrXl58pontXnjP0/QCyoeHh7eBV6+cF62SI4g2VY7+IWHh4f3nbx8+VON/7xUkYeQIgbi4eHhrXn5FmeNqByfF0eKRhoeHh7eBV5SCDjVJNuUPDZNNTw8PLxTvCLjPlom2AeVqP2Gh4eHd43Xhoe2AJEn68lxF2ViPDw8vMu8tiSR4zer5HdeptR4eHh4385rSxJ5Mp0cQV7YHc5E4OHh4U2y2XogYDMuMFtr8/Xg4eHhneW1CXQ7WNC+0Nuk+U2JBA8PD+8CLy+nJg/NG2n70YE6scbDw8M7xJu1u9pRg1nwaJtkeHh4eN/D2zw6f7nnZeI2vd4XR/Dw8PBmvFPBIE+7Z2WLJDC8rLjg4eHhXeDNumebMdMEdqDQjIeHh/dR3ua/2kPMQ8KbYIOHh4f3UV6ezm6GA9rgFLXB8PDw8C7w8kJtGyRmT26P8s1kGR4eHt5R3qzlv1kgT4vPjmfh4eHhrXl/AQPY7gPwa2t6AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3a0WrkMAwF0Pn/n959XShJ7pXiMgsnT2Wa2j4uWB5Jn0/8/Pnnuf/k58+z0X5+fj/m6sHDw8NbLP1quKuh7ye+X/TV+1fvXG3Hwxbg4eHhHeNtJsvHmZ3beeDBw8PD+2ZestD7N9vZ8fDw8P5HXguepS2SN/Hw8PC+gZckI/J0QJLUmIWHg7kWPDw8vJiXH+7f8/OR+h4eHh7euqqeBIlZUMkv9KtQhIeHh3eAN2sdaFsK2neSxEexZXh4eHjHePnE7bGeNAQkgaQdAQ8PD+8cb3NYJ2nWZHGzNq8kSODh4eGd4LVTtotoi1WzIPFQ38PDw8P7Rd7s8zZhsQ8VeHh4eL/JmyVhW8ymEWHWhoWHh4d3gvfuEdymJ9p8SZIO/pyLMHh4eHjBkzddtVuwL7a9gMTDw8Nb84ov83GjQBsw2r8q/mN4eHh4L/E2LaH5cf9uIrgIUXh4eHgHePmFdZZKyAPGW9fxIkjg4eHhjXjtVThvNUj2NU9MDFeLh4eHd4yXfPmfJTLagtbsan6pwMPDwzvASxIE7bV42OdVXs2LQIWHh4d3gLdvF2hL/m2tKg9OR7oh8PDw8G4P4jZl0F5zk2DTFuEe6nt4eHh4x3jJcmfvFAuKL+LRBuHh4eEd4LUTt9PnCYv9hb7oj8DDw8Nb8/I9yNMQOWZfYHsYBw8PD+8YL/ntuxfffNGzpgQ8PDy807xVwnSdvJgVvT5tVMHDw8M7AGsbrfLy/6yBoL2mPxTA8PDw8Na82Rk7W+IslZAnMlYBBg8PD6/ktcEgT/Xm1/dN4a2o6eHh4eG9ymsvuJvCfztyG8Dw8PDwvo2XTLwpm+VrizYFDw8P72t4s/apNoS09awXrtR4eHh4MW928c03Im+uKhqqTqRx8fDw8F4tgM2G2ycsXkjm4uHh4b3D+wvy2jDd8DemYwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

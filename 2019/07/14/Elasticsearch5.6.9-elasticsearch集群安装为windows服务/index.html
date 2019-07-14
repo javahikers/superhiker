@@ -30,25 +30,27 @@ ga('send', 'pageview');
     
     
     
-    <title>Elasticsearch5.6.9-基础概念 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <title>Elasticsearch5.6.9-elasticsearch集群安装为windows服务 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Elasticsearch">
-    <meta name="description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
-<meta name="keywords" content="Elasticsearch">
+    <meta name="keywords" content="Elasticsearch,安装部署">
+    <meta name="description" content="在安装elasticsearch集群之前，请先阅读这篇博文《Elasticsearch5.6.9-安装使用》的这一部分elasticsearch分布式安装本文在它的基础上进行安装，配置文件elasticsearch.yml保持一致。3个文件我已打包好，点击下载文件 进入各自的bin目录，安装并启动服务D:\downloadsoftware\elasticsearch\elasticsearch-5">
+<meta name="keywords" content="Elasticsearch,安装部署">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Elasticsearch5.6.9-基础概念">
-<meta property="og:url" content="http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/index.html">
+<meta property="og:title" content="Elasticsearch5.6.9-elasticsearch集群安装为windows服务">
+<meta property="og:url" content="http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/index.html">
 <meta property="og:site_name" content="Javahiker&#39;s Homepage">
-<meta property="og:description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+<meta property="og:description" content="在安装elasticsearch集群之前，请先阅读这篇博文《Elasticsearch5.6.9-安装使用》的这一部分elasticsearch分布式安装本文在它的基础上进行安装，配置文件elasticsearch.yml保持一致。3个文件我已打包好，点击下载文件 进入各自的bin目录，安装并启动服务D:\downloadsoftware\elasticsearch\elasticsearch-5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-12T14:39:04.414Z">
+<meta property="og:image" content="http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/001.png">
+<meta property="og:updated_time" content="2019-07-14T08:52:15.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elasticsearch5.6.9-基础概念">
-<meta name="twitter:description" content="基本概念 集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识 节点(node)：一个单独的 Elasticsearch 实例 索引(index)：含有相同属性的文档集合 类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型 文档(document)：文档是可以被索引的基本数据单位 分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 prim">
+<meta name="twitter:title" content="Elasticsearch5.6.9-elasticsearch集群安装为windows服务">
+<meta name="twitter:description" content="在安装elasticsearch集群之前，请先阅读这篇博文《Elasticsearch5.6.9-安装使用》的这一部分elasticsearch分布式安装本文在它的基础上进行安装，配置文件elasticsearch.yml保持一致。3个文件我已打包好，点击下载文件 进入各自的bin目录，安装并启动服务D:\downloadsoftware\elasticsearch\elasticsearch-5">
+<meta name="twitter:image" content="http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/001.png">
     
         <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
     
@@ -136,7 +138,7 @@ ga('send', 'pageview');
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Elasticsearch5.6.9-基础概念</div>
+        <div class="flex-col header-title ellipsis">Elasticsearch5.6.9-elasticsearch集群安装为windows服务</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -158,11 +160,11 @@ ga('send', 'pageview');
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Elasticsearch5.6.9-基础概念</h1>
+        <h1 class="title">Elasticsearch5.6.9-elasticsearch集群安装为windows服务</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-07-12T13:58:18.000Z" itemprop="datePublished" class="page-time">
-  2019-07-12
+                <time datetime="2019-07-14T06:23:23.000Z" itemprop="datePublished" class="page-time">
+  2019-07-14
 </time>
 
 
@@ -183,17 +185,17 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#类比关系型数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">类比关系型数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他"><span class="post-toc-number">3.</span> <span class="post-toc-text">其他</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进入各自的bin目录，安装并启动服务"><span class="post-toc-number">1.</span> <span class="post-toc-text">进入各自的bin目录，安装并启动服务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#命令"><span class="post-toc-number">2.</span> <span class="post-toc-text">命令</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-Elasticsearch5.6.9-基础概念" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-Elasticsearch5.6.9-elasticsearch集群安装为windows服务" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Elasticsearch5.6.9-基础概念</h1>
+        <h1 class="post-card-title">Elasticsearch5.6.9-elasticsearch集群安装为windows服务</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-07-12 21:58:18" datetime="2019-07-12T13:58:18.000Z" itemprop="datePublished">2019-07-12</time>
+            <time class="post-time" title="2019-07-14 14:23:23" datetime="2019-07-14T06:23:23.000Z" itemprop="datePublished">2019-07-14</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/分布式/">分布式</a></li></ul>
@@ -208,48 +210,29 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
-<li>集群(cluster)：集群由一个或者多个节点组成，由名称唯一标识</li>
-<li>节点(node)：一个单独的 Elasticsearch 实例</li>
-<li>索引(index)：含有相同属性的文档集合</li>
-<li>类型(type)：索引可以定义一个或多个类型，文档必须属于一个类型</li>
-<li>文档(document)：文档是可以被索引的基本数据单位</li>
-<li>分片(shard)：每个索引都有多个分片，每个分片是一个Lucene索引。分为 primary shard(主分片) 和 replica shard(简称replicas)。</li>
-<li>副本/备份(replicas)：拷贝一份分片就完成了分片的备份</li>
+            <p>在安装elasticsearch集群之前，请先阅读这篇博文《Elasticsearch5.6.9-安装使用》的这一部分<a href="https://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/#elasticsearch%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%89%E8%A3%85">elasticsearch分布式安装</a><br>本文在它的基础上进行安装，配置文件elasticsearch.yml保持一致。3个文件我已打包好，点击<a href="/download/elasticsearch yml文件.rar">下载文件</a></p>
+<h1 id="进入各自的bin目录，安装并启动服务"><a href="#进入各自的bin目录，安装并启动服务" class="headerlink" title="进入各自的bin目录，安装并启动服务"></a>进入各自的bin目录，安装并启动服务</h1><pre><code>D:\downloadsoftware\elasticsearch\elasticsearch-5.6.9\bin&gt;elasticsearch-service.bat install elasticsearchMaster
+D:\downloadsoftware\elasticsearch\elasticsearch-5.6.9\bin&gt;elasticsearch-service.bat start elasticsearchMaster
+D:\downloadsoftware\elasticsearch\elasticsearch-5.6.9_slave1\bin&gt;elasticsearch-service.bat install elasticsearchSlave1
+D:\downloadsoftware\elasticsearch\elasticsearch-5.6.9_slave1\bin&gt;elasticsearch-service.bat start elasticsearchSlave1
+D:\downloadsoftware\elasticsearch\elasticsearch-5.6.9_slave2\bin&gt;elasticsearch-service.bat install elasticsearchSlave2
+D:\downloadsoftware\elasticsearch\elasticsearch-5.6.9_slave2\bin&gt;elasticsearch-service.bat start elasticsearchSlave2
+</code></pre><p>安装好之后可以在windows服务窗口查看已安装的服务</p>
+<div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/001.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div>
+
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><ul>
+<li>elasticsearch-service.bat install: 安装服务</li>
+<li>elasticsearch-service.bat remove: 删除已安装的服务（如果启动则停止服务） </li>
+<li>elasticsearch-service.bat start: 启动Elasticsearch服务（如果已安装） </li>
+<li>elasticsearch-service.bat stop: 停止服务（如果已启动） </li>
+<li>elasticsearch-service.bat manager:启动GUI来管理已安装的服务<br>命令后面可以跟服务名称</li>
 </ul>
-<pre><code>思考题，分片和备份的好处
-分片的好处：当索引数据量很大时，会造成硬盘压力过大，搜索速度会成为瓶颈，
-这时候可以将索引分成多个分片，从而分摊压力。同时允许用户做水平扩展和拆
-分，以及分布式操作，可以提高搜索和其他操作的效率。
-备份的好处：主分片失败时，备份分片可以代替工作，从而提高es的可用性。备
-份分片还可以执行搜索操作，以分摊搜索压力。
-</code></pre><h1 id="类比关系型数据库"><a href="#类比关系型数据库" class="headerlink" title="类比关系型数据库"></a>类比关系型数据库</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">Elasticsearch</th>
-<th style="text-align:left">关系型数据库</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">索引(index)</td>
-<td style="text-align:left">数据库(database)</td>
-</tr>
-<tr>
-<td style="text-align:left">类型(type)</td>
-<td style="text-align:left">表(table)</td>
-</tr>
-<tr>
-<td style="text-align:left">文档(document)</td>
-<td style="text-align:left">行记录(row)</td>
-</tr>
-<tr>
-<td style="text-align:left">字段(field)</td>
-<td style="text-align:left">列(column)</td>
-</tr>
-</tbody>
-</table>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>es创建索引时，默认创建5个分片，每个分片1个备份。分片的数量只能在创建索引时指定，一旦创建就不能修改。备份的数量是可以动态修改的。</p>
 
         </div>
 
@@ -258,12 +241,12 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-12T14:39:04.414Z" itemprop="dateUpdated">2019-07-12 22:39:04</time>
+    最后更新时间：<time datetime="2019-07-14T08:52:15.433Z" itemprop="dateUpdated">2019-07-14 16:52:15</time>
 </span><br>
 
 
         
-        本文链接：<a href="/2019/07/12/Elasticsearch5.6.9-基础概念/" target="_blank" rel="external">http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/</a>
+        本文链接：<a href="/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/" target="_blank" rel="external">http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/</a>
         
     </div>
     
@@ -284,7 +267,7 @@ ga('send', 'pageview');
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装部署/">安装部署</a></li></ul>
 
 
             
@@ -294,7 +277,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/&title=《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -304,22 +287,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/&title=《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&via=http://javahikers.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/&via=http://javahikers.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -342,18 +325,18 @@ ga('send', 'pageview');
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/07/12/Elasticsearch5.6.9-基本用法/" id="post-prev" class="post-nav-link">
+      <a href="/2019/07/14/Elasticsearch5.6.9-windows下安装logstash/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Elasticsearch5.6.9-基本用法</h4>
+        <h4 class="title">Elasticsearch5.6.9-windows下安装logstash</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/07/10/Elasticsearch5.6.9-安装使用/" id="post-next" class="post-nav-link">
+      <a href="/2019/07/13/Elasticsearch5.6.9-查询操作/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Elasticsearch5.6.9-安装使用</h4>
+        <h4 class="title">Elasticsearch5.6.9-查询操作</h4>
       </a>
     </div>
   
@@ -452,7 +435,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/&title=《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -462,22 +445,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&title=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/&title=《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-基础概念》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/&via=http://javahikers.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/&via=http://javahikers.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/12/Elasticsearch5.6.9-基础概念/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch集群安装为windows服务/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -488,7 +471,7 @@ ga('send', 'pageview');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3a0W7jMAwEwP7/T9+9HnCIs0tKTQuMnwojtTQKYDIkv77i68+L6/kz/97//zPPqyT3j114eHh4h7b+alszxuxpm/3g4eHh3ea9eqPmr+Zoscfnz47yjQUPDw/vR/KSkJBsMQkneHh4eL+X1waA5yckG8XDw8P7abxZCpsfyiYkzNJuPDw8vHu82aY/+/eV/h4eHh7euqueXLOCb1v2He4NDw8P7wJvls4mhYazA16rxBoPDw/vGu95mXaAIAckpdv2/lf7zeDh4eHFT0hesvvN5eXdtjDxplSBh4eHd4HX/tTPX/T76nL+tOIXAx4eHt6a1y68GSlok+YDJWA8PDy8C7w8wX1Or9sEvR3Dmu0NDw8P7zavLRPkLahZ6SEvJa8qLnh4eHhr3vOG9unvLNjMjgAPDw/vBq8dAtg3zOqzj/dTTzHg4eHhrXl58pontXnjP0/QCyoeHh7eBV6+cF62SI4g2VY7+IWHh4f3nbx8+VON/7xUkYeQIgbi4eHhrXn5FmeNqByfF0eKRhoeHh7eBV5SCDjVJNuUPDZNNTw8PLxTvCLjPlom2AeVqP2Gh4eHd43Xhoe2AJEn68lxF2ViPDw8vMu8tiSR4zer5HdeptR4eHh4385rSxJ5Mp0cQV7YHc5E4OHh4U2y2XogYDMuMFtr8/Xg4eHhneW1CXQ7WNC+0Nuk+U2JBA8PD+8CLy+nJg/NG2n70YE6scbDw8M7xJu1u9pRg1nwaJtkeHh4eN/D2zw6f7nnZeI2vd4XR/Dw8PBmvFPBIE+7Z2WLJDC8rLjg4eHhXeDNumebMdMEdqDQjIeHh/dR3ua/2kPMQ8KbYIOHh4f3UV6ezm6GA9rgFLXB8PDw8C7w8kJtGyRmT26P8s1kGR4eHt5R3qzlv1kgT4vPjmfh4eHhrXl/AQPY7gPwa2t6AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADHElEQVR42u3aUY6jQAwFwNz/0tkDRGGf7UYKnuJrlSGBaqR9tO3XKz7eH8fn59ffSn7/+lqfZ3775NiBjY2N/RD2+/L4BngXj2tkDvh2J7kFGxsbeys7CZXrCOktQR5L19fNLdjY2NjY1bf6JGDmEYWNjY2N3QuwfLPRW9w8OLGxsbGxe8FQvYlq0WryGI7V0rCxsbF/np13RX//37f0t7GxsbF/mN0r6/fOz0v/1QGgsgIbGxt7Ebu3zZhsXXrbg2qDIVoybGxs7BXsajhVbyW5rUnjIV+sqPqFjY2N/UD2pKXai5PrxeqNBxWyGhsbG3sdO7lwHiq9v1bbwAcaCdjY2NiL2IV8a7VXb6mBBZuNwiYEGxsbewW799Kfh0p11CaJsV6TGBsbG3sfO3/prwZedehnsiGpZhM2Njb2JnZyo9XRnOqZkxZC3n5+VZ8PNjY29kPYvUJ/9RbvKE71GtXY2NjY+9i90k9SNpo0dE8t0H++hY2Njb2IPSkn5eDemb07bMYYNjY29sPZ9/0P3yvcVxsMh9sJ2NjY2A9h90ZtJoDe+fPGADY2NvZWdu/VvzdSmcderzmRxB42Njb232HnP1dt6FbjKnkYzYFRbGxs7HXsybYkj6IEn0RjAo7mlbCxsbEfzs5HZ/ILn93AVBsD0f1gY2NjL2X3thDVcZxqg6FaripPJ2FjY2OvYPdaAvM27anwKw8bYWNjYy9i9xquvcJ9Hm/5wxg1j7GxsbEXsSebhKRtUN1yVH+hF2/Y2NjYm9h5E7fZSS5ucqpL2SxvYWNjYy9l559XX/GrgVfllZcMGxsbeyk7KQxVeXnhqVeQqrYisLGxsXezeyX75JLzcZzJSBA2Njb2VvY8SHol/nxRkt8sBy02Njb2InYvAJLNQHU5qkM5vWJTeVGwsbGxH8LOQ2tS1s8/77WZk6DFxsbG3s2ejPLM87O38TiwzcDGxsb+8+x5qzj/bi9ivy4QNjY2NnZcEsrxhyth11fHxsbGXseeNHd7g5KnilD56A82Njb2Vna1ApMX9PM4mW9XbilFYWNjY/86+x/8kjUAyKZ9swAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
