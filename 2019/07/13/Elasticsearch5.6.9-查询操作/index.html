@@ -46,7 +46,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://javahikers.github.io/2019/07/13/Elasticsearch5.6.9-查询操作/001.png">
-<meta property="og:updated_time" content="2019-07-15T23:04:35.784Z">
+<meta property="og:updated_time" content="2019-07-16T22:53:55.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch5.6.9-查询操作">
 <meta name="twitter:description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
@@ -229,17 +229,75 @@ ga('send', 'pageview');
 
 </li>
 </ul>
-<h2 id="列出所有索引"><a href="#列出所有索引" class="headerlink" title="列出所有索引"></a>列出所有索引</h2><pre><code>GET请求postman `http://localhost:9200/_cat/indices?v`
-GET请求kibana `GET /_cat/indices?v`,可以省略前面的ip和端口，默认连接本地9200端口,后面介绍都将通过kibana给es发送请求
-</code></pre><p><a href="https://www.cnblogs.com/pilihaotian/p/5830754.html" target="_blank" rel="noopener">ElasticSearch 索引查询使用指南</a></p>
+<h2 id="列出所有索引"><a href="#列出所有索引" class="headerlink" title="列出所有索引"></a>列出所有索引</h2><p>GET请求postman <code>http://localhost:9200/_cat/indices?v</code><br>GET请求kibana <code>GET /_cat/indices?v</code>,可以省略前面的ip和端口，默认连接本地9200端口,后面介绍都将通过kibana给es发送请求</p>
 <pre><code>health status index            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
 green  open   javahikers       OToEZOxvSbWJVtlEpGVOGg   5   1       1000            0      1.2mb        664.8kb
 green  open   logstashjsontest 7UZWLq26QTyDdVW2QczuyA   5   1         12            0    164.8kb         82.4kb
-</code></pre><h1 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h1><p>GET请求 <code>GET javahikers/acount/400</code></p>
+</code></pre><p><a href="https://www.cnblogs.com/pilihaotian/p/5830754.html" target="_blank" rel="noopener">ElasticSearch 索引查询使用指南</a></p>
+<h1 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h1><p>GET请求 <code>GET javahikers/acount/400</code></p>
 <h1 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h1><p>POST请求 <code>POST javahikers/_search</code><br>下面统一通过 REST request body发送查询参数</p>
-<h2 id="match-all"><a href="#match-all" class="headerlink" title="match_all"></a>match_all</h2><p>查询所有，from起始数据下标，数据下标是从0开始。size返回数据条数。<br>不写from和size默认返回前10条数据<br>    {<br>        “query”: {<br>            “match_all”: {}<br>        },<br>        “from”: 0,<br>        “size”: 1<br>    }<br>返回结果，根据字段名可以知道其含义<br>took单位毫秒，hits返回的数据<br>    {<br>        “took”: 8,<br>        “timed_out”: false,<br>        “_shards”: {<br>            “total”: 5,<br>            “successful”: 5,<br>            “skipped”: 0,<br>            “failed”: 0<br>        },<br>        “hits”: {<br>            “total”: 1000,<br>            “max_score”: 1,<br>            “hits”: [<br>                {<br>                    “_index”: “javahikers”,<br>                    “_type”: “acount”,<br>                    “_id”: “25”,<br>                    “_score”: 1,<br>                    “_source”: {<br>                        “account_number”: 25,<br>                        “balance”: 40540,<br>                        “firstname”: “Virginia”,<br>                        “lastname”: “Ayala”,<br>                        “age”: 39,<br>                        “gender”: “F”,<br>                        “address”: “171 Putnam Avenue”,<br>                        “employer”: “Filodyne”,<br>                        “email”: “<a href="mailto:virginiaayala@filodyne.com" target="_blank" rel="noopener">virginiaayala@filodyne.com</a>“,<br>                        “city”: “Nicholson”,<br>                        “state”: “PA”<br>                    }<br>                }<br>            ]<br>        }<br>    }</p>
-<h2 id="match"><a href="#match" class="headerlink" title="match"></a>match</h2><p>带有sort时，查询结果里面_score字段会变成null<br>    POST javahikers/_search<br>    {<br>      “query”: {<br>        “match”: {<br>          “address”: “Avenue”<br>        }<br>      },<br>      “sort”: [<br>        {<br>          “age”: {<br>            “order”: “desc”<br>          }<br>        }<br>      ]<br>    }</p>
-<h1 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h1><h2 id="aggs-gt-terms"><a href="#aggs-gt-terms" class="headerlink" title="aggs-&gt;terms"></a>aggs-&gt;terms</h2><pre><code>POST javahikers/_search
+<h2 id="match-all"><a href="#match-all" class="headerlink" title="match_all"></a>match_all</h2><p>查询所有，from起始数据下标，数据下标是从0开始。size返回数据条数。<br>不写from和size默认返回前10条数据</p>
+<pre><code>POST javahikers/_search
+{
+    &quot;query&quot;: {
+        &quot;match_all&quot;: {}
+    },
+    &quot;from&quot;: 0,
+    &quot;size&quot;: 1
+}
+</code></pre><p>返回结果，根据字段名可以知道其含义<br>took单位毫秒，hits返回的数据</p>
+<pre><code>{
+    &quot;took&quot;: 8,
+    &quot;timed_out&quot;: false,
+    &quot;_shards&quot;: {
+        &quot;total&quot;: 5,
+        &quot;successful&quot;: 5,
+        &quot;skipped&quot;: 0,
+        &quot;failed&quot;: 0
+    },
+    &quot;hits&quot;: {
+        &quot;total&quot;: 1000,
+        &quot;max_score&quot;: 1,
+        &quot;hits&quot;: [
+            {
+                &quot;_index&quot;: &quot;javahikers&quot;,
+                &quot;_type&quot;: &quot;acount&quot;,
+                &quot;_id&quot;: &quot;25&quot;,
+                &quot;_score&quot;: 1,
+                &quot;_source&quot;: {
+                    &quot;account_number&quot;: 25,
+                    &quot;balance&quot;: 40540,
+                    &quot;firstname&quot;: &quot;Virginia&quot;,
+                    &quot;lastname&quot;: &quot;Ayala&quot;,
+                    &quot;age&quot;: 39,
+                    &quot;gender&quot;: &quot;F&quot;,
+                    &quot;address&quot;: &quot;171 Putnam Avenue&quot;,
+                    &quot;employer&quot;: &quot;Filodyne&quot;,
+                    &quot;email&quot;: &quot;virginiaayala@filodyne.com&quot;,
+                    &quot;city&quot;: &quot;Nicholson&quot;,
+                    &quot;state&quot;: &quot;PA&quot;
+                }
+            }
+        ]
+    }
+}
+</code></pre><h2 id="match"><a href="#match" class="headerlink" title="match"></a>match</h2><p>带有sort时，查询结果里面_score字段会变成null</p>
+<pre><code>POST javahikers/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;address&quot;: &quot;Avenue&quot;
+    }
+  },
+  &quot;sort&quot;: [
+    {
+      &quot;age&quot;: {
+        &quot;order&quot;: &quot;desc&quot;
+      }
+    }
+  ]
+}
+</code></pre><h1 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h1><h2 id="aggs-gt-terms"><a href="#aggs-gt-terms" class="headerlink" title="aggs-&gt;terms"></a>aggs-&gt;terms</h2><pre><code>POST javahikers/_search
 {
   &quot;aggs&quot;: {
     &quot;group_by_account_number&quot;: {
@@ -254,8 +312,10 @@ green  open   logstashjsontest 7UZWLq26QTyDdVW2QczuyA   5   1         12        
     }
   }
 }
-</code></pre><p>group_by_account_number的查询结果里面，可以看出默认获取排名前10的分组数数据，<br>这些分组数据数量+sum_other_doc_count等于全部文档数量<br>    “doc_count_error_upper_bound”: 0,<br>    “sum_other_doc_count”: 463,</p>
-<h2 id="aggs-gt-stats"><a href="#aggs-gt-stats" class="headerlink" title="aggs-&gt;stats"></a>aggs-&gt;stats</h2><pre><code>POST javahikers/_search
+</code></pre><p>group_by_account_number的查询结果里面，可以看出默认获取排名前10的分组数数据，<br>这些分组数据数量+doc_count_error_upper_bound+sum_other_doc_count等于全部文档数量</p>
+<pre><code>&quot;doc_count_error_upper_bound&quot;: 0,
+&quot;sum_other_doc_count&quot;: 463,
+</code></pre><h2 id="aggs-gt-stats"><a href="#aggs-gt-stats" class="headerlink" title="aggs-&gt;stats"></a>aggs-&gt;stats</h2><pre><code>POST javahikers/_search
 {
   &quot;aggs&quot;: {
     &quot;age_count&quot;: {
@@ -265,8 +325,17 @@ green  open   logstashjsontest 7UZWLq26QTyDdVW2QczuyA   5   1         12        
     }
   }
 }
-</code></pre><p>查询结果里面，包含了age的最小值，最大值，平均值总和的计算<br>      “aggregations”: {<br>        “age_count”: {<br>          “count”: 1000,<br>          “min”: 20,<br>          “max”: 40,<br>          “avg”: 30.171,<br>          “sum”: 30171<br>        }<br>      }</p>
-
+</code></pre><p>查询结果里面，包含了age的最小值，最大值，平均值和总和的计算</p>
+<pre><code>&quot;aggregations&quot;: {
+  &quot;age_count&quot;: {
+    &quot;count&quot;: 1000,
+    &quot;min&quot;: 20,
+    &quot;max&quot;: 40,
+    &quot;avg&quot;: 30.171,
+    &quot;sum&quot;: 30171
+  }
+}
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
@@ -274,7 +343,7 @@ green  open   logstashjsontest 7UZWLq26QTyDdVW2QczuyA   5   1         12        
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-15T23:04:35.784Z" itemprop="dateUpdated">2019-07-16 07:04:35</time>
+    最后更新时间：<time datetime="2019-07-16T22:53:55.758Z" itemprop="dateUpdated">2019-07-17 06:53:55</time>
 </span><br>
 
 
