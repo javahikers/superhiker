@@ -48,7 +48,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/80673b2agy1g743m5lef8j20wo0mddgv.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/80673b2agy1g74f6y5ofyj20wm0mr40t.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/80673b2agy1g74gg9wjdrj214w0m2adc.jpg">
-<meta property="og:updated_time" content="2019-09-18T23:40:16.213Z">
+<meta property="og:updated_time" content="2019-09-18T23:51:39.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PDF或是word文件如何转成markdown格式">
 <meta name="twitter:description" content="安装包链接：https://pan.baidu.com/s/1GqiUOvN2ideaAGZUpn8OxA提取码：tmkkpdfedplu.rar 将pdf转word的，typora0.9_zh.rar 将word转markdown，另外一个是依赖的安装包 PDF导出成word利用  PDFXEditPortable.exe 将PDF 导出成 word 格式，文件名为 xx.docx word导出">
@@ -187,7 +187,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装包"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PDF导出成word"><span class="post-toc-number">2.</span> <span class="post-toc-text">PDF导出成word</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#word导出成-markdown-源代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">word导出成 markdown 源代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#替换本地图片链接"><span class="post-toc-number">4.</span> <span class="post-toc-text">替换本地图片链接</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装包"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PDF导出成word"><span class="post-toc-number">2.</span> <span class="post-toc-text">PDF导出成word</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#word导出成-markdown-源代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">word导出成 markdown 源代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#替换本地图片链接"><span class="post-toc-number">4.</span> <span class="post-toc-text">替换本地图片链接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#手工替换"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">手工替换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#脚本替换"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">脚本替换</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -220,9 +220,7 @@ ga('send', 'pageview');
 <p>格式是这样的：</p>
 <p><code>![](media/image1.png){width=&quot;5.768055555555556in&quot; height=&quot;2.057638888888889in&quot;}</code></p>
 <p>此时，如果直接将包含了这些本地图片的标签的 markdown 发布到简书或是CSDN。这些本地图片将无法显示。</p>
-<h1 id="替换本地图片链接"><a href="#替换本地图片链接" class="headerlink" title="替换本地图片链接"></a>替换本地图片链接</h1><ol>
-<li>手工替换<br>将图片上传到网络，如新浪图床。这里推荐大家在google浏览器里面安装新浪图床插件，然后将图片上传到新浪图床。至于怎么安装请自行百度。打开新浪图床是如下页面。</li>
-</ol>
+<h1 id="替换本地图片链接"><a href="#替换本地图片链接" class="headerlink" title="替换本地图片链接"></a>替换本地图片链接</h1><h2 id="手工替换"><a href="#手工替换" class="headerlink" title="手工替换"></a>手工替换</h2><p>将图片上传到网络，如新浪图床。这里推荐大家在google浏览器里面安装新浪图床插件，然后将图片上传到新浪图床。至于怎么安装请自行百度。打开新浪图床是如下页面。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -238,9 +236,7 @@ ga('send', 'pageview');
                 </div>
                 <div class="image-caption">image02.png</div>
             </figure>
-<ol start="2">
-<li>脚本替换<br>如果觉得手动替换链接麻烦，这里推荐一种自动替换链接的方式。熟练操作之后也很方便。</li>
-</ol>
+<h2 id="脚本替换"><a href="#脚本替换" class="headerlink" title="脚本替换"></a>脚本替换</h2><p>如果觉得手动替换链接麻烦，这里推荐一种自动替换链接的方式。熟练操作之后也很方便。</p>
 <p>将上面生成的markdown链接复制好。 如果有多个图片，按照图片出现的顺序，将链接依次排好</p>
 <p>![image1.png]…</p>
 <p>![image2.png]…</p>
@@ -262,7 +258,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-18T23:40:16.213Z" itemprop="dateUpdated">2019-09-19 07:40:16</time>
+    最后更新时间：<time datetime="2019-09-18T23:51:39.230Z" itemprop="dateUpdated">2019-09-19 07:51:39</time>
 </span><br>
 
 
