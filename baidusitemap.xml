@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://javahikers.github.io/2019/06/15/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key/</loc>
+    <lastmod>2019-11-08</lastmod>
+  </url>  <url>
     <loc>http://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2019-09-28</lastmod>
   </url>  <url>
@@ -35,9 +38,6 @@
     <lastmod>2019-06-16</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/06/15/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5aplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</loc>
-    <lastmod>2019-06-16</lastmod>
-  </url>  <url>
-    <loc>http://javahikers.github.io/2019/06/15/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key/</loc>
     <lastmod>2019-06-16</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/05/05/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3IDEA%E5%90%AF%E5%8A%A8%E8%BF%87%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</loc>

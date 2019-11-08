@@ -46,7 +46,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="背景当有多个git账号时，比如：  一个gitee，用于公司内部的工作开发； 两个github，用于自己进行一些开发活动；   步骤生成公钥和私钥对1.生成一个公司用的SSH-Key$ ssh-keygen -t rsa -C &amp;#39;xxxxx@company.com&amp;#39; -f ~/.ssh/gitee_id_rsa2.生成一个github用的SSH-Key$ ssh-keygen -t">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/15/Git配置多个SSH-Key/01.png">
-<meta property="og:updated_time" content="2019-06-16T00:07:30.417Z">
+<meta property="og:updated_time" content="2019-11-08T01:32:18.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git配置多个SSH-Key">
 <meta name="twitter:description" content="背景当有多个git账号时，比如：  一个gitee，用于公司内部的工作开发； 两个github，用于自己进行一些开发活动；   步骤生成公钥和私钥对1.生成一个公司用的SSH-Key$ ssh-keygen -t rsa -C &amp;#39;xxxxx@company.com&amp;#39; -f ~/.ssh/gitee_id_rsa2.生成一个github用的SSH-Key$ ssh-keygen -t">
@@ -248,9 +248,9 @@ $ ssh -T git@github.com.two
 </code></pre><p>这里以github为例，成功的话会返回下面内容</p>
 <pre><code>Hi javahikers! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
 </code></pre><hr>
-<h1 id="下载代码注意事项"><a href="#下载代码注意事项" class="headerlink" title="下载代码注意事项"></a>下载代码注意事项</h1><p>1.路径以http://开头，可以下载。提交代码时,会提示没有权限。<a href="https://github.com/javahikers/algorithms-studying" target="_blank" rel="noopener">代码地址</a></p>
+<h1 id="下载代码注意事项"><a href="#下载代码注意事项" class="headerlink" title="下载代码注意事项"></a>下载代码注意事项</h1><p>1.路径以http://开头，可以下载。提交代码时,会提示没有权限。</p>
 <pre><code>git clone https://github.com/javahikers/algorithms-studying.git
-</code></pre><p>2.路径以git@ 开头，下载代码时会进行权限校验。只有登录<a href="https://github.com/" title="github的网址" target="_blank" rel="noopener">github</a>之后才能切换成git开头的路径。如果自己开发，推荐使用这种方式。<br>将github.com替换成config文件中配置的Host。<a href="https://github.com/javahikers/algorithms-studying" target="_blank" rel="noopener">代码地址</a></p>
+</code></pre><p>2.路径以git@ 开头，下载代码时会进行权限校验。只有登录<a href="https://github.com/" title="github的网址" target="_blank" rel="noopener">github</a>之后才能切换成git开头的路径。如果自己开发，推荐使用这种方式。<br>将github.com替换成config文件中配置的Host。</p>
 <pre><code>git clone git@github.com.two:javahikers/algorithms-studying.git
 </code></pre><p>3.不变更路径会提示没有权限下载</p>
 <pre><code>$ git clone git@github.com:javahikers/algorithms-studying.git
@@ -268,7 +268,7 @@ and the repository exists.
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-16T00:07:30.417Z" itemprop="dateUpdated">2019-06-16 08:07:30</time>
+    最后更新时间：<time datetime="2019-11-08T01:32:18.328Z" itemprop="dateUpdated">2019-11-08 09:32:18</time>
 </span><br>
 
 
