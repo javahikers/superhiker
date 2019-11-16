@@ -52,7 +52,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="http://javahikers.github.io/2019/06/22/windows环境同时安装mysql5.7和mysql8.0详细教程/006.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/22/windows环境同时安装mysql5.7和mysql8.0详细教程/007.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/22/windows环境同时安装mysql5.7和mysql8.0详细教程/008.png">
-<meta property="og:updated_time" content="2019-07-10T14:01:25.845Z">
+<meta property="og:updated_time" content="2019-11-15T09:29:04.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows环境同时安装mysql5.7和mysql8.0详细教程">
 <meta name="twitter:description" content="下载版本官网下载两个不同的版本进入mysql官网，页面导航 DOWNLOADS=&amp;gt;Mysql Community Server                                                                                                              下载最新版本，目前是8.0.16，根据自己电脑配">
@@ -277,7 +277,7 @@ tmpdir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
 socket=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql.sock
 log-error=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql_error.log
 # 设置mysql服务端默认字符集
-character-set-server=utf8
+character-set-server=utf8mb4
 # 创建新表时将使用的默认存储引擎
 default-storage-engine=INNODB
 # 允许最大连接数
@@ -289,7 +289,7 @@ max_connect_errors=10
 default_authentication_plugin=mysql_native_password
 [mysql]
 # 设置mysql客户端默认字符集
-default-character-set=utf8
+default-character-set=utf8mb4
 </code></pre><ul>
 <li>上述涉及到路径的配置，需要改成你自己解压之后的路径，可以看出有5个地方需要修改</li>
 <li>5.7.26版本的my.ini端口配置port=3306。8.0.16版本的my.ini端口配置port=3307，这样在后面启动服务的时候可以避免端口占用的问题。</li>
@@ -402,7 +402,7 @@ Query OK, 0 rows affected (0.00 sec)
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-10T14:01:25.845Z" itemprop="dateUpdated">2019-07-10 22:01:25</time>
+    最后更新时间：<time datetime="2019-11-15T09:29:04.300Z" itemprop="dateUpdated">2019-11-15 17:29:04</time>
 </span><br>
 
 

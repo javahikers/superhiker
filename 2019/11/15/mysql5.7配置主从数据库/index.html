@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?1c9123028e7e5abc8faae65d030b496e"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="HHaynQDbWoNBIm4JhtWmdzRe5CweKqUcxGjs3zqzRQU">
+    
+    
+    
+    
+    <title>mysql5.7配置主从数据库 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="安装部署,Mysql">
+    <meta name="description" content="配置前需要阅读的文档请先阅读《windows环境同时安装mysql5.7和mysql8.0详细教程》,后面将按照上述教程安装5.7版本的mysql。 准备安装文件和配置文件准备好两份解压之后的文件 mysql-5.7.26-winx64，一个当主库，一个当从库准备好两份配置文件my.ini，主库一份，从库一份主库的配置，点击下载主库配置文件 [client] # 设置mysql客户端连接服务端时默">
+<meta name="keywords" content="安装部署,Mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql5.7配置主从数据库">
+<meta property="og:url" content="http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/index.html">
+<meta property="og:site_name" content="Javahiker&#39;s Homepage">
+<meta property="og:description" content="配置前需要阅读的文档请先阅读《windows环境同时安装mysql5.7和mysql8.0详细教程》,后面将按照上述教程安装5.7版本的mysql。 准备安装文件和配置文件准备好两份解压之后的文件 mysql-5.7.26-winx64，一个当主库，一个当从库准备好两份配置文件my.ini，主库一份，从库一份主库的配置，点击下载主库配置文件 [client] # 设置mysql客户端连接服务端时默">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-16T01:33:45.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql5.7配置主从数据库">
+<meta name="twitter:description" content="配置前需要阅读的文档请先阅读《windows环境同时安装mysql5.7和mysql8.0详细教程》,后面将按照上述教程安装5.7版本的mysql。 准备安装文件和配置文件准备好两份解压之后的文件 mysql-5.7.26-winx64，一个当主库，一个当从库准备好两份配置文件my.ini，主库一份，从库一份主库的配置，点击下载主库配置文件 [client] # 设置mysql客户端连接服务端时默">
+    
+        <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/logoliu.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brandliu.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logoliu.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liux</h5>
+          <a href="mailto:675435543@qq.com" title="675435543@qq.com" class="mail">675435543@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://github.com/javahikers" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mysql5.7配置主从数据库</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mysql5.7配置主从数据库</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-15T08:32:40.000Z" itemprop="datePublished" class="page-time">
+  2019-11-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件相关/">软件相关</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置前需要阅读的文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置前需要阅读的文档</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备安装文件和配置文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备安装文件和配置文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-mysql5.7配置主从数据库" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mysql5.7配置主从数据库</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-15 16:32:40" datetime="2019-11-15T08:32:40.000Z" itemprop="datePublished">2019-11-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件相关/">软件相关</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="配置前需要阅读的文档"><a href="#配置前需要阅读的文档" class="headerlink" title="配置前需要阅读的文档"></a>配置前需要阅读的文档</h1><p>请先阅读<a href="https://javahikers.github.io/2019/06/22/windows%E7%8E%AF%E5%A2%83%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85mysql5.7%E5%92%8Cmysql8.0%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">《windows环境同时安装mysql5.7和mysql8.0详细教程》</a>,后面将按照上述教程安装5.7版本的mysql。</p>
+<h1 id="准备安装文件和配置文件"><a href="#准备安装文件和配置文件" class="headerlink" title="准备安装文件和配置文件"></a>准备安装文件和配置文件</h1><p>准备好两份解压之后的文件 mysql-5.7.26-winx64，一个当主库，一个当从库<br>准备好两份配置文件my.ini，主库一份，从库一份<br>主库的配置，点击<a href="/download/master/my.ini">下载主库配置文件</a></p>
+<pre><code>[client]
+# 设置mysql客户端连接服务端时默认使用的端口
+port=3306
+default-character-set=utf8mb4
+[mysqld]
+#设置3306端口
+port=3306
+# 设置mysql的安装目录
+basedir =E:/software_javahiker/mysql/mysql-5.7.26-winx64
+# 设置mysql数据库的数据的存放目录
+datadir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
+tmpdir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
+socket=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql.sock
+log-error=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql_error.log
+# 服务端使用的字符集默认为utf8mb4
+character-set-server=utf8mb4
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 允许最大连接数
+max_connections=200
+# 允许连接失败的次数。
+max_connect_errors=10
+# 默认使用“mysql_native_password”插件认证
+#mysql_native_password
+default_authentication_plugin=mysql_native_password
+# 主库配置
+server-id=1
+log-bin=master-bin
+log-bin-index=master-bin.index
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8mb4
+</code></pre><p>从库的配置，点击<a href="/download/slave/my.ini">下载从库配置文件</a></p>
+<pre><code>[client]
+# 设置mysql客户端连接服务端时默认使用的端口
+port=3307
+default-character-set=utf8mb4
+[mysqld]
+#设置3306端口
+port=3307
+# 设置mysql的安装目录
+basedir =E:/software_javahiker/mysql/mysql-5.7.26-winx64
+# 设置mysql数据库的数据的存放目录
+datadir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
+tmpdir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
+socket=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql.sock
+log-error=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql_error.log
+# 服务端使用的字符集默认为utf8mb4
+character-set-server=utf8mb4
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 允许最大连接数
+max_connections=200
+# 允许连接失败的次数。
+max_connect_errors=10
+# 默认使用“mysql_native_password”插件认证
+#mysql_native_password
+default_authentication_plugin=mysql_native_password
+# 从库配置
+server-id=2
+relay-log-index=slave-relay-bin.index
+relay-log=slave-relay-bin
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8mb4
+</code></pre><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>阅读 <a href="https://javahikers.github.io/2019/06/22/windows%E7%8E%AF%E5%A2%83%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85mysql5.7%E5%92%8Cmysql8.0%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">教程</a> 进行安装，参照5.7版本进行安装。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-16T01:33:45.147Z" itemprop="dateUpdated">2019-11-16 09:33:45</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/11/15/mysql5.7配置主从数据库/" target="_blank" rel="external">http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://javahikers.github.io">
+            <img src="/img/logoliu.jpg" alt="liux">
+            liux
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装部署/">安装部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/&title=《mysql5.7配置主从数据库》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/&title=《mysql5.7配置主从数据库》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql5.7配置主从数据库》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/18/PDF或是word文件如何转成markdown格式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PDF或是word文件如何转成markdown格式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        爱你哟~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatliu.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatliu.jpg" data-alipay="/img/alipayliu.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liux &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/&title=《mysql5.7配置主从数据库》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/&title=《mysql5.7配置主从数据库》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql5.7配置主从数据库》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/11/15/mysql5.7配置主从数据库/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aS27jQAwFQN//0hkgqwADOe+RasWL0srwR2IxQDfD5usVX1/f1/+vf77z/rq629U7V3d+nbjw8PDwRqG/Dyt/zNWv3jNyah4zHh4e3mlee7t2O7lr9c5jxsPDw/sEXvJpnpS8+M43GDw8PLzP5CWlbR7i++/n6cbDw8N7nteWs+0324bFLAY8PDy8Z3ibA7C/ev3Q+R4eHh5e2TzNS+HNorzfBi6jxcPDwzvAu6tV2hbcbehtmur84eHh4cW8uxoHeat3Nl4wLL7x8PDwTvUKXrPluy2vW2SS7iiVeHh4eAd4SQG9ud4HnQM2RT8eHh7eXbz2n/8klBMHbEnqiwMwPDw8vAWvBc+W9bYgnnWjo/vg4eHhrXn5wpqUyG0BvXl6lEQ8PDy8A7zZwf8muLahkLeS8fDw8J7ktQ2C2cF/Hm57h1lUeHh4eBveveVyEnSy2STx4OHh4T3Pmy3Wdw1OtaMGeYmPh4eHd443O/RqC+JZi3ZzZzw8PLzTvLYZkePbo6x9T6VICh4eHt6I124AeXu3bWrkAwFFEwQPDw/vGG92nN+GmxTreYqjAh0PDw/vMO99iO3ynZS8w2EpPDw8vI/nbQYFZgt9nr7VTAQeHh7e+tP8OD/fADaYtr37S8x4eHh4N/Hakaa8UJ5tLfkRV/QnwcPDwzvMy3+8KZqT1kY7doCHh4f3JC9qhpZt1nZYajUXNmv+4uHh4S14X+WVl7n5sr4poH/5FR4eHt4BXrtVtEt5PlaVFPGboQQ8PDy8e3n5ZpDkZr/N3Nv2xcPDwzvHO9FWyLeNWSqjGPDw8PD+lJeXyLMxgtnAFh4eHt7n8/KG6X4IoG09XDYj8PDw8A7w2mbEpgjOy+J8oOoyHXh4eHgHeLPHz6h54pKye59WPDw8vJL3D37+u2BiZIfKAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1277350950&web_id=1277350950')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
