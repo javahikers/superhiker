@@ -45,7 +45,7 @@ ga('send', 'pageview');
 <meta property="og:site_name" content="Javahiker&#39;s Homepage">
 <meta property="og:description" content="配置前需要阅读的文档请先阅读《windows环境同时安装mysql5.7和mysql8.0详细教程》,后面将按照上述教程安装5.7版本的mysql。 准备安装文件和配置文件准备好两份解压之后的文件 mysql-5.7.26-winx64，一个当主库，一个当从库准备好两份配置文件my.ini，主库一份，从库一份主库的配置，点击下载主库配置文件 [client] # 设置mysql客户端连接服务端时默">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-16T01:33:45.147Z">
+<meta property="og:updated_time" content="2019-11-21T01:04:43.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql5.7配置主从数据库">
 <meta name="twitter:description" content="配置前需要阅读的文档请先阅读《windows环境同时安装mysql5.7和mysql8.0详细教程》,后面将按照上述教程安装5.7版本的mysql。 准备安装文件和配置文件准备好两份解压之后的文件 mysql-5.7.26-winx64，一个当主库，一个当从库准备好两份配置文件my.ini，主库一份，从库一份主库的配置，点击下载主库配置文件 [client] # 设置mysql客户端连接服务端时默">
@@ -183,7 +183,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置前需要阅读的文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置前需要阅读的文档</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备安装文件和配置文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备安装文件和配置文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置前需要阅读的文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置前需要阅读的文档</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备安装文件和配置文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备安装文件和配置文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置主库和从库"><span class="post-toc-number">4.</span> <span class="post-toc-text">配置主库和从库</span></a></li></ol>
         </nav>
     </aside>
 
@@ -251,12 +251,12 @@ default-character-set=utf8mb4
 #设置3306端口
 port=3307
 # 设置mysql的安装目录
-basedir =E:/software_javahiker/mysql/mysql-5.7.26-winx64
+basedir =E:/software_javahiker/mysql/mysql-5.7.26-winx64-slave
 # 设置mysql数据库的数据的存放目录
-datadir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
-tmpdir =E:/software_javahiker/mysql/mysql-5.7.26-winx64/data
-socket=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql.sock
-log-error=E:/software_javahiker/mysql/mysql-5.7.26-winx64/data/mysql_error.log
+datadir =E:/software_javahiker/mysql/mysql-5.7.26-winx64-slave/data
+tmpdir =E:/software_javahiker/mysql/mysql-5.7.26-winx64-slave/data
+socket=E:/software_javahiker/mysql/mysql-5.7.26-winx64-slave/data/mysql.sock
+log-error=E:/software_javahiker/mysql/mysql-5.7.26-winx64-slave/data/mysql_error.log
 # 服务端使用的字符集默认为utf8mb4
 character-set-server=utf8mb4
 # 创建新表时将使用的默认存储引擎
@@ -276,6 +276,27 @@ relay-log=slave-relay-bin
 # 设置mysql客户端默认字符集
 default-character-set=utf8mb4
 </code></pre><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>阅读 <a href="https://javahikers.github.io/2019/06/22/windows%E7%8E%AF%E5%A2%83%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85mysql5.7%E5%92%8Cmysql8.0%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">教程</a> 进行安装，参照5.7版本进行安装。</p>
+<h1 id="配置主库和从库"><a href="#配置主库和从库" class="headerlink" title="配置主库和从库"></a>配置主库和从库</h1><ol>
+<li>打开主库，查看主库信息</li>
+</ol>
+<pre><code>show master status
+
+File    Position    Binlog_Do_DB    Binlog_Ignore_DB    Executed_Gtid_Set
+master-bin.000003   154 
+</code></pre><ol start="2">
+<li>打开从库, 根据主库信息配置从库信息后，重启服务</li>
+</ol>
+<pre><code>CHANGE MASTER TO
+MASTER_HOST = &apos;localhost&apos;,
+MASTER_USER = &apos;root&apos;,
+MASTER_PASSWORD = &apos;123456&apos;,
+MASTER_LOG_FILE = &apos;master-bin.000003&apos;,
+MASTER_LOG_POS = 154;
+</code></pre><ol start="3">
+<li>查看从库信息，保证slave_sql_running和Slave_IO_Running都是yes</li>
+</ol>
+<pre><code>show slave status
+</code></pre><p>有疑问请移步至<a href="https://www.cnblogs.com/l-hh/p/9922548.html" target="_blank" rel="noopener">MySQL数据同步，出现Slave_SQL_Running：no和slave_io_running：no问题的解决方法</a></p>
 
         </div>
 
@@ -284,7 +305,7 @@ default-character-set=utf8mb4
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-11-16T01:33:45.147Z" itemprop="dateUpdated">2019-11-16 09:33:45</time>
+    最后更新时间：<time datetime="2019-11-21T01:04:43.739Z" itemprop="dateUpdated">2019-11-21 09:04:43</time>
 </span><br>
 
 
