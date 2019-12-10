@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://javahikers.github.io/2019/06/15/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5aplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</loc>
+    <lastmod>2019-12-10</lastmod>
+  </url>  <url>
     <loc>http://javahikers.github.io/2019/11/15/mysql5.7%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
@@ -38,9 +41,6 @@
     <lastmod>2019-07-10</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/06/15/hexo%E6%8F%92%E5%85%A5%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
-    <lastmod>2019-06-16</lastmod>
-  </url>  <url>
-    <loc>http://javahikers.github.io/2019/06/15/hexo%E5%9C%A8%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5aplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</loc>
     <lastmod>2019-06-16</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/05/05/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3IDEA%E5%90%AF%E5%8A%A8%E8%BF%87%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
