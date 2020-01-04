@@ -41,30 +41,30 @@ ga('send', 'pageview');
 <meta name="keywords" content="IntelliJ-IDEA,Maven,使用教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDEA搭建maven多模块module项目">
-<meta property="og:url" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/index.html">
+<meta property="og:url" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/index.html">
 <meta property="og:site_name" content="Javahiker&#39;s Homepage">
 <meta property="og:description" content="通过IDEA创建多模块项目，有时候需要树形结构，有的需要平行结构，下面将手把手教你如何创建多模块项目。 新建项目打开IDEA新建项目   用maven创建项目，点击next 进入下一步   建立groupId,artifactId,version信息   建项目名与项目位置   建好的项目目录如下，红框内的文件可以删除或是保留   删除多余的文件   创建子模块，父子模块之间是树形结构新建模块">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/01.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/02.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/03.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/04.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/05.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/06.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/07.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/08.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/09.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/10.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/11.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/12.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/13.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/14.png">
-<meta property="og:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/15.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/01.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/02.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/03.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/04.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/05.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/06.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/07.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/08.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/09.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/10.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/11.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/12.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/13.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/14.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/15.png">
 <meta property="og:updated_time" content="2019-06-15T08:51:33.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDEA搭建maven多模块module项目">
 <meta name="twitter:description" content="通过IDEA创建多模块项目，有时候需要树形结构，有的需要平行结构，下面将手把手教你如何创建多模块项目。 新建项目打开IDEA新建项目   用maven创建项目，点击next 进入下一步   建立groupId,artifactId,version信息   建项目名与项目位置   建好的项目目录如下，红框内的文件可以删除或是保留   删除多余的文件   创建子模块，父子模块之间是树形结构新建模块">
-<meta name="twitter:image" content="http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/01.png">
+<meta name="twitter:image" content="http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/01.png">
     
         <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
     
@@ -293,12 +293,12 @@ ga('send', 'pageview');
 
 
         
-        本文链接：<a href="/2019/06/14/IDEA搭建maven多模块module项目/" target="_blank" rel="external">http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/</a>
+        本文链接：<a href="/2019/06/14/IDEA搭建maven多模块module项目/" target="_blank" rel="external">http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/</a>
         
     </div>
     
     <footer>
-        <a href="http://javahikers.gitee.io">
+        <a href="http://javahikers.github.io">
             <img src="/img/logoliu.jpg" alt="liux">
             liux
         </a>
@@ -324,7 +324,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&pic=http://javahikers.gitee.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -334,22 +334,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/&via=http://javahikers.gitee.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/&via=http://javahikers.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -482,7 +482,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&pic=http://javahikers.gitee.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -492,22 +492,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/&title=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/&via=http://javahikers.gitee.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA搭建maven多模块module项目》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/&via=http://javahikers.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.gitee.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/06/14/IDEA搭建maven多模块module项目/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -518,7 +518,7 @@ ga('send', 'pageview');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3a0WojMQwF0P7/T3dh30qZ7L2SnXbhzFOYzMQ+DthC0sdHfH3+vZ7ufH67nt76/vzTnadRPm5ceHh4eKOpP13JTz89+RqQj5W8+7RAeHh4ePd4+aTzb9upb0Z8vI+Hh4f3o7x8g84D9HZ0PDw8vP+LlwTiZ3MFSbCOh4eH91O85KeTREOStnj9fDufY7kWPDw8vJjXFsB+w+eL9T08PDy8dTg725qTtoD22KjniYeHh3eB1w6ftE9tymN5m0JxYODh4eEd5c3SB+3mPhtr9u2Xz3h4eHgXeLOCVp7kLQLf4AhpU714eHh47+e1JatN80GOaZu38PDw8G7zXk9l9nzbZJDfL0J2PDw8vAu8PEmapxXazX2fOC4Cazw8PLwF73Uw3aYAZi1Ts6Mi+h08PDy8C7w88G0xeZKi7Xeojxk8PDy8o7xNUX9G2hTS2pnj4eHhneXNtvh3piraMP3L7+Dh4eFd4J2qE51NQGzSHFHaAg8PD2/B27RY5eF1nvxNGmSLJgY8PDy8y7w2CJ5dZ8tm//hL8PDw8K7x6tdeDpwcA3ng3h4MxX+Ch4eHN+K1CdM2LG5Jm+WIjhM8PDy8C7zZxp2/Oyun7e/g4eHhneXtQ9u26HUg0RAnnfHw8PDu8ZJSVt5G0B4JsxJaMls8PDy8G7x9o9WpYLpNN+QFPDw8PLyzvJwxa8N6vRCz4llx5ODh4eG9hTdrtJqVsvYNAVEaFw8PD+8Q77O88iXIp94mHYqWBTw8PLwLvM2mv0EmRbJZk0GUd8HDw8Nb844VmRaruEkiR2lcPDw8vAu8/DDYhMj7YyNfIDw8PLzfyWuTsG1onh8/eHh4eL+T17ZM5e9GwfGoHQEPDw/vHi8vPm1SCcmdfOHqWBsPDw/vEK8tgO237ISRP58fKnh4eHhr3h+yrVS553tfEwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aS3ICMQwFQO5/6WSbDZ4nySIselZUwsdtqsbiSa9XfP38ud79/Xydn5+/22vjwsPDwxssPfngd686PzN5fGsj8PDw8D7De3dHPS8lPzB69+1kax4seHh4eF/AK9+aj7DzGqrPx8PDw/t+XlIQJ0dLlYSHh4f3Dbxb5WxSZCeMfEOvZS14eHh4C12k73m80t/Dw8PDG3fVq0Ftbyl5cVxeLR4eHt4Crxqhzkep5uFFeTgMDw8Pb4HX+3nfG6U6xxb5gVQuvvHw8PDWeMltuloc56T8KCpHFXh4eHiXeHnrax5YVEv2HP92i/Hw8PAWeNWf9L1hguT987L7Qq8PDw8Pb3yH3G7kV7epWkY/RLd4eHh4C7wktK2W19VQo7eSh4MEDw8Pb4GXx6+9iKEXedxKYvHw8PA2eHlIutfcmsQZD2vDw8PDW+NVW0q9UDUJEfKQIlozHh4e3gIvv3/mh0q1xdUbEYhiXDw8PLyP8O6GCPMwdzLQgIeHh7fBu1VGJxvROzyqRXwhxsXDw8Nr8SYDUr0iOw8XqoMIzfIaDw8Pr8VLQtVJe+xusy2PifHw8PD2eEnz6W5fvjeakPMKejw8PLwirzcEcL6h9/6exMflLwMPDw9vgZeHEZN21DxuqIYX5awFDw8Pr8ibDEgle3arKE8C3GafDQ8PD6/Fmzf4z6/NP2WSrBRmyvDw8PDWeJPjoVpw966HSAUPDw/vKu+nePWW1RtLzZtnD98bHh4e3lVe9eabvPUk2K0GEK9bFx4eHl6RVy2Oq8jJYZOMIDyA8fDw8NZ4eYFb3YJb1GtZBR4eHt4/8aqh6t221oUGGB4eHt4HedXCOhl4nT//2sGAh4eHF/PmZW4vyOh9SuG/eHh4eAu86i/6PH6tbkdvSOtCbIGHh4eX8n4B4qp9grl16bkAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
