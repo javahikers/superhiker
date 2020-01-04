@@ -36,22 +36,22 @@ ga('send', 'pageview');
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Elasticsearch,安装部署">
+    <meta name="keywords" content="安装部署,Elasticsearch">
     <meta name="description" content="本文以windows环境为例，介绍Elasticsearch的安装使用，linux环境请下载tar包，并在linux环境通过命令行解压 elasticsearch单实例和相关插件的安装elasticsearch下载安装去官网下载安装版本5.6.9，跟着官网教程将工程跑起来  解压之后，启动bin目录下的脚本elasticsearch.bat 页面访问http://localhost:9200">
-<meta name="keywords" content="Elasticsearch,安装部署">
+<meta name="keywords" content="安装部署,Elasticsearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elasticsearch5.6.9-安装使用">
-<meta property="og:url" content="http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/index.html">
+<meta property="og:url" content="http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/index.html">
 <meta property="og:site_name" content="Javahiker&#39;s Homepage">
 <meta property="og:description" content="本文以windows环境为例，介绍Elasticsearch的安装使用，linux环境请下载tar包，并在linux环境通过命令行解压 elasticsearch单实例和相关插件的安装elasticsearch下载安装去官网下载安装版本5.6.9，跟着官网教程将工程跑起来  解压之后，启动bin目录下的脚本elasticsearch.bat 页面访问http://localhost:9200">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/001.png">
-<meta property="og:image" content="http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/002.png">
+<meta property="og:image" content="http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/001.png">
+<meta property="og:image" content="http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/002.png">
 <meta property="og:updated_time" content="2019-11-15T08:27:35.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch5.6.9-安装使用">
 <meta name="twitter:description" content="本文以windows环境为例，介绍Elasticsearch的安装使用，linux环境请下载tar包，并在linux环境通过命令行解压 elasticsearch单实例和相关插件的安装elasticsearch下载安装去官网下载安装版本5.6.9，跟着官网教程将工程跑起来  解压之后，启动bin目录下的脚本elasticsearch.bat 页面访问http://localhost:9200">
-<meta name="twitter:image" content="http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/001.png">
+<meta name="twitter:image" content="http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/001.png">
     
         <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
     
@@ -270,7 +270,7 @@ node.master: false
 network.host: 127.0.0.1
 http.port: 9202
 discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]
-</code></pre><p>配置说明：cluster.name集群名称。node.name节点名称。node.master为true表示自己有机会成为主节点，不配置时默认为true。network.host绑定ip，如果不配置默认绑定127.0.0.1。http.port绑定端口,如果不配置默认绑定9200。discovery.zen.minimum_master_nodes防止脑裂配置项，表示至少需要几个节点才能组成集群。<br>slave1和slave2指定的端口和默认端口不要冲突,启动bin目录下的脚本elasticsearch.bat，先启动master，再启动slave1和slave2，访问<code>http://localhost:9100/</code><br>每次手工启动上面3个es服务会显得很笨拙，可以将它们安装为windows服务，安装过程也很简单，请参考我的另一篇博文，<a href="https://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/">《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》</a></p>
+</code></pre><p>配置说明：cluster.name集群名称。node.name节点名称。node.master为true表示自己有机会成为主节点，不配置时默认为true。network.host绑定ip，如果不配置默认绑定127.0.0.1。http.port绑定端口,如果不配置默认绑定9200。discovery.zen.minimum_master_nodes防止脑裂配置项，表示至少需要几个节点才能组成集群。<br>slave1和slave2指定的端口和默认端口不要冲突,启动bin目录下的脚本elasticsearch.bat，先启动master，再启动slave1和slave2，访问<code>http://localhost:9100/</code><br>每次手工启动上面3个es服务会显得很笨拙，可以将它们安装为windows服务，安装过程也很简单，请参考我的另一篇博文，<a href="https://javahikers.github.io/2019/07/14/Elasticsearch5.6.9-elasticsearch%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/" target="_blank" rel="noopener">《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》</a></p>
 <div><br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -306,12 +306,12 @@ http.cors.allow-origin: &quot;*&quot;
 
 
         
-        本文链接：<a href="/2019/07/10/Elasticsearch5.6.9-安装使用/" target="_blank" rel="external">http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/</a>
+        本文链接：<a href="/2019/07/10/Elasticsearch5.6.9-安装使用/" target="_blank" rel="external">http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/</a>
         
     </div>
     
     <footer>
-        <a href="http://javahikers.github.io">
+        <a href="http://javahikers.gitee.io">
             <img src="/img/logoliu.jpg" alt="liux">
             liux
         </a>
@@ -337,7 +337,7 @@ http.cors.allow-origin: &quot;*&quot;
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&pic=http://javahikers.gitee.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -347,22 +347,22 @@ http.cors.allow-origin: &quot;*&quot;
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/&via=http://javahikers.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/&via=http://javahikers.gitee.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -495,7 +495,7 @@ http.cors.allow-origin: &quot;*&quot;
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&pic=http://javahikers.gitee.io/img/logoliu.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -505,22 +505,22 @@ http.cors.allow-origin: &quot;*&quot;
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/&title=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/&via=http://javahikers.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-安装使用》 — Javahiker's Homepage&url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/&via=http://javahikers.gitee.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.gitee.io/2019/07/10/Elasticsearch5.6.9-安装使用/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -531,7 +531,7 @@ http.cors.allow-origin: &quot;*&quot;
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwklEQVR42u3awW7jMAwE0Pz/T3eBPfWwcWYoCu0Cz6cgbW0/HUR2qNcrvr7+Xs/ffP/++/X8O+++ye+2cOHh4eGNXv3d9Yx5B04+J+zn+z+/Mx4eHt5tXv66+U/bZXpelOQ+eHh4eL+N99z45mVg9jt4eHh4/yMvediMmiwlHh4e3m/jJWFE0jrngULerCdLsJC14OHh4XXPLQZgv+HzxfkeHh4e3sFUfXcwlm/fs2Lwj7/Cw8PDu8BLBvZtwHoS2p4c2IpWFw8PD2+VN9vE8zskw7M28I3AeHh4eBd4s3/1Z8FuPu46SRte0WQMDw8PbyUHiJrgdjx2MmbLjy8sZNJ4eHh4S/tkDj4PINoBWATGw8PDu8abtb+zYVhbYGatPB4eHt4NXvuAWSx7PvoaBhZ4eHh4F3g5aWuLb4dbbQP9oaXGw8PDu8CbBQSzB7cxbhtk4OHh4d3jJX/QxhB5FNtGw8M4Aw8PD2+J1za4s226PW41Ky1v82k8PDy8a7xZ05wHr+1xq1kei4eHh3eblw+ZtgZUySLOjiN8eAc8PDy8C7z2eMGshORHstrFTe6Dh4eHt8XLDwfM4td8sU6e9aHi4eHh4S3xZk3tyZDspFTUx7/w8PDwrvHuNbsnbXoe2kb5Ch4eHt4Sb3aAIBnw58OtfOsflhw8PDy8C7x8QNWOstrlaxeiLkt4eHh4S7wZoy0ebYQxi3o/DMDw8PDwVnkng6h23pTHDa/yKhIXPDw8vBHvq7zysX2+0ScLMVwyPDw8vAu8k3oyi1/b8VsbjszKCR4eHl7Lm8UBLXXWgieLFcW4eHh4eBd47aacbPezWHZWwT4UBjw8PLwf5eWHANrood3Vo+gZDw8P70d5Jy80a+XzpVwoDHh4eHglLz8glc/l2zAiiWiHwy08PDy8Vd7JAKwtFW2QsRbm4uHh4e3w/gBZfH2CQnwYcQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvUlEQVR42u3aO5IbMQwFQN3/0nbs2prVewApK+iJVPrMsBkQEIDXK77+/Lh+/+bTr37+9uf7T/f//bmrCw8PD2+99N8fmX8nWdbTfdo1PG49Hh4e3jVee8QnB3eyZfk7w+CBh4eH9zW8WWKdb0dyTzw8PLzv5yXfn21B8kQ8PDy8b+Pl6e+MnW/oJlDh4eHhfYaXd5G+5/WV/h4eHh7euqveNsY2xdm8eFGsEA8PD+8Crz2U84R7k/LORhYeNx0PDw/vAu/UgZ7ktLNP87Lv43rw8PDwDvHav/cJbDMmlZd3o9IwHh4e3jVeXm7YDxkULf+4Pfa4Zjw8PLwLvE0zbNPI33fqDpPw8PDwFrzkD39SCMgT7lmzbThuhYeHh3eI17am2qbUqffbsggeHh7ebV57fCchISlG5G2tdhgLDw8P7wYvT6BnbbCWtBkUwMPDw/sML2/5D2NOPIKQh6KEV0w94OHh4ZW8zYjAPkXOS8Oz8IOHh4d3j9feok1/NyNWs+T+n38MeHh4eEd5s5ZSnuZuxq3yNURpPR4eHt4h3qa9lLep2tCSh6s6GODh4eF9hNeWLdoxqf1oQlGZxsPDw1vz9iMCM3Cbss+KxXh4eHg3eLOCQr4FyafJc9uA8WqjFh4eHt6Itykx7McRNqn2m8o0Hh4e3lFeO2KVhJPiwXHIGZYh8PDw8C7wzh70s6S5LXMUrTI8PDy8C7x2oW1xIQ9FLbsooODh4eEd5f0pr/zgbjdotsVvNg4PDw/vAm9TGkgS7rxxlSzrQN0FDw8P7xAvCQazo3wzcLAJPHh4eHif4c0KuO1G5FuZb1lRq8bDw8P7OC8fvdo0xmaNrsdV4eHh4f1X3qzd1bbQ2kDyancXDw8P7xCvLUbkW9NuXJs6vwlXeHh4eBd4bfBIDu6zISEvc6z6e3h4eHjveX8B8iRzqAx9v5EAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
