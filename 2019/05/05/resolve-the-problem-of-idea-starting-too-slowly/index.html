@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?1c9123028e7e5abc8faae65d030b496e"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="HHaynQDbWoNBIm4JhtWmdzRe5CweKqUcxGjs3zqzRQU">
+    
+    
+    
+    
+    <title>如何解决IDEA启动过慢的问题 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="安装部署,IntelliJ-IDEA">
+    <meta name="description" content="找到配置文件idea的bin目录下有个.vmoptions后缀结尾的文件，请打开。32位的对应idea.exe.vmoptions，64位的对应idea64.exe.vmoptions 我的配置-server-Xms2g-Xmx2g-XX:ReservedCodeCacheSize=240m-XX:+UseConcMarkSweepGC-XX:SoftRefLRUPolicyMSPerMB=50-">
+<meta name="keywords" content="安装部署,IntelliJ-IDEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何解决IDEA启动过慢的问题">
+<meta property="og:url" content="http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/index.html">
+<meta property="og:site_name" content="Javahiker&#39;s Homepage">
+<meta property="og:description" content="找到配置文件idea的bin目录下有个.vmoptions后缀结尾的文件，请打开。32位的对应idea.exe.vmoptions，64位的对应idea64.exe.vmoptions 我的配置-server-Xms2g-Xmx2g-XX:ReservedCodeCacheSize=240m-XX:+UseConcMarkSweepGC-XX:SoftRefLRUPolicyMSPerMB=50-">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-05T07:37:18.080Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何解决IDEA启动过慢的问题">
+<meta name="twitter:description" content="找到配置文件idea的bin目录下有个.vmoptions后缀结尾的文件，请打开。32位的对应idea.exe.vmoptions，64位的对应idea64.exe.vmoptions 我的配置-server-Xms2g-Xmx2g-XX:ReservedCodeCacheSize=240m-XX:+UseConcMarkSweepGC-XX:SoftRefLRUPolicyMSPerMB=50-">
+    
+        <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/logoliu.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brandliu.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logoliu.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liux</h5>
+          <a href="mailto:675435543@qq.com" title="675435543@qq.com" class="mail">675435543@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://github.com/javahikers" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">如何解决IDEA启动过慢的问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">如何解决IDEA启动过慢的问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-05T12:33:15.000Z" itemprop="datePublished" class="page-time">
+  2019-05-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件相关/">软件相关</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#找到配置文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">找到配置文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我的配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">我的配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#程序使用内存设置"><span class="post-toc-number">3.</span> <span class="post-toc-text">程序使用内存设置</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-resolve-the-problem-of-idea-starting-too-slowly" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何解决IDEA启动过慢的问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-05 20:33:15" datetime="2019-05-05T12:33:15.000Z" itemprop="datePublished">2019-05-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件相关/">软件相关</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="找到配置文件"><a href="#找到配置文件" class="headerlink" title="找到配置文件"></a>找到配置文件</h1><p>idea的bin目录下有个.vmoptions后缀结尾的文件，请打开。<br>32位的对应idea.exe.vmoptions，64位的对应idea64.exe.vmoptions</p>
+<h1 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h1><p>-server<br>-Xms2g<br>-Xmx2g<br>-XX:ReservedCodeCacheSize=240m<br>-XX:+UseConcMarkSweepGC<br>-XX:SoftRefLRUPolicyMSPerMB=50<br>-ea<br>-Dsun.io.useCanonCaches=false<br>-Djava.net.preferIPv4Stack=true<br>-Djdk.http.auth.tunneling.disabledSchemes=””<br>-XX:+HeapDumpOnOutOfMemoryError<br>-XX:-OmitStackTraceInFastThrow<br>-javaagent:D:\idea2018\ideaIU-2018.3.win\bin\JetbrainsIdesCrack-3.4-release-enc.jar</p>
+<h1 id="程序使用内存设置"><a href="#程序使用内存设置" class="headerlink" title="程序使用内存设置"></a>程序使用内存设置</h1><p>-Xms用来设置程序初始化时内存栈的大小，增加这个值会使程序的启动性能会得到提高<br>-Xmx用来设置程序能够使用的最大内存，这个值不要设置超过机器的内存，笔者认为，在大多数情况下,把Xmx值设置在2g和3g之间是最佳的。这里统一设置成2g</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-05T07:37:18.080Z" itemprop="dateUpdated">2020-01-05 15:37:18</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/" target="_blank" rel="external">http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://javahikers.github.io">
+            <img src="/img/logoliu.jpg" alt="liux">
+            liux
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJ-IDEA/">IntelliJ-IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装部署/">安装部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/&title=《如何解决IDEA启动过慢的问题》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/&title=《如何解决IDEA启动过慢的问题》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何解决IDEA启动过慢的问题》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/12/hexo-blog-introduces-images/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hexo博客引入图片</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/04/markdown-simple-to-use/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">markdown简明使用方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        爱你哟~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatliu.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatliu.jpg" data-alipay="/img/alipayliu.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liux &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/&title=《如何解决IDEA启动过慢的问题》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/&title=《如何解决IDEA启动过慢的问题》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何解决IDEA启动过慢的问题》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADHUlEQVR42u3a227qQAwFUP7/pzmvlXqAbXsqEWflCYWQzJpIdX15POLj+ev4ef7VNa+u/3km+W1y/eMvDmxsbOyLsPPlJvfpPeXVb99vcW/rsbGxsbeyTz2ytzXJRudBNHouNjY29o3Z70NFLyjm6Up1ndjY2NjYSREn+XbyxOoZbGxs7Huy52X991dWlzUPfsdqadjY2Nhfz867ot//+U/629jY2NhfzH4Wj2rpv1rKrw70NBXY2NjYi9iTkZ1e27U3EtQrb314MdjY2Njr2L0yU/KwZEAnb/EmoSv5FhsbG3sHe9IozUNFktJUg1l+T2xsbOy7secJQxJIqkWoyZ0/dLaxsbGxL87ujeyc3Yje2E0vOcHGxsbeyp4XgObthOoG5SnTgbEebGxs7Iuw8z/61aXkpf+kjNV7hy9XiI2Njb2CPWm7VhOJPDiduj6aVMLGxsa+LDtfYg+ZhL1qMKt+/vCesbGxsZey5wWdamIzSVfyVgE2Njb2VnY1/Ugavb0G8OT6wnlsbGzsRez8n/jqAE01RamGtHn7ARsbG3sTO08z8nSl12DIy1LzESJsbGzsrex52pCHpcnmzl8YNjY29g52HormDddeCEwY5fQJGxsbex17/m99dYPe46uN5GZXBBsbG3sRuzdMc7Zh0At1zQYDNjY29lJ2Xo6vtgTyUlRv+CZ/edjY2Nh3YyeF+MlAT3LnyVYWamnY2NjYF2dXy+vVos9kC6rFrEKExMbGxl7Erm5HHiqqASkJbNXG83/OYGNjYy9iTwZicnAPcDbtwcbGxr4DOy/T5EnF2TZDD4aNjY19B/a8qJSP4PS2Y/JisLGxse/JPlXuz4NKrwE86gtgY2Njr2A/i0eenPT6rdVtSgLVh5EdbGxs7IuzJ8M9728xT0iqkzZ56wIbGxt7HztvoE5K+dXgd2rjXj4FGxsbex07Lyr1NmKeqMzrZ9jY2NjY1VZrr6iUjF320iRsbGxs7GohqZowJMnJJIxhY2Nj72bnRaV86afwvYGhD1uGjY2NvYg9L/E8B0evlVvtWo/629jY2Njfy/4H4LQhTM7uY0MAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1277350950&web_id=1277350950')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

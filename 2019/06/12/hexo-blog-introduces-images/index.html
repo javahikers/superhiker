@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?1c9123028e7e5abc8faae65d030b496e"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="HHaynQDbWoNBIm4JhtWmdzRe5CweKqUcxGjs3zqzRQU">
+    
+    
+    
+    
+    <title>hexo博客引入图片 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="安装部署,Hexo">
+    <meta name="description" content="前言很多时候图片比文字更有说服力，但是如何引入呢？图片放什么地方呢？其实不用借助七牛。  步骤 将_config.yml里的post_asset_folder设置为truepost_asset_folder: true 在hexo目录下执行:npm install hexo-asset-image --save 在hexo目录下执行:hexo n &amp;quot;博客名&amp;quot;_post目录下会生">
+<meta name="keywords" content="安装部署,Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客引入图片">
+<meta property="og:url" content="http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/index.html">
+<meta property="og:site_name" content="Javahiker&#39;s Homepage">
+<meta property="og:description" content="前言很多时候图片比文字更有说服力，但是如何引入呢？图片放什么地方呢？其实不用借助七牛。  步骤 将_config.yml里的post_asset_folder设置为truepost_asset_folder: true 在hexo目录下执行:npm install hexo-asset-image --save 在hexo目录下执行:hexo n &amp;quot;博客名&amp;quot;_post目录下会生">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/hexo博客引入图片/Daniel.jpg">
+<meta property="og:updated_time" content="2019-06-15T08:51:33.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo博客引入图片">
+<meta name="twitter:description" content="前言很多时候图片比文字更有说服力，但是如何引入呢？图片放什么地方呢？其实不用借助七牛。  步骤 将_config.yml里的post_asset_folder设置为truepost_asset_folder: true 在hexo目录下执行:npm install hexo-asset-image --save 在hexo目录下执行:hexo n &amp;quot;博客名&amp;quot;_post目录下会生">
+<meta name="twitter:image" content="http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/hexo博客引入图片/Daniel.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/logoliu.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brandliu.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logoliu.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liux</h5>
+          <a href="mailto:675435543@qq.com" title="675435543@qq.com" class="mail">675435543@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://github.com/javahikers" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">hexo博客引入图片</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">hexo博客引入图片</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-12T13:01:23.000Z" itemprop="datePublished" class="page-time">
+  2019-06-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">步骤</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hexo-blog-introduces-images" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">hexo博客引入图片</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-12 21:01:23" datetime="2019-06-12T13:01:23.000Z" itemprop="datePublished">2019-06-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很多时候图片比文字更有说服力，但是如何引入呢？图片放什么地方呢？其实不用借助七牛。</p>
+<hr>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>将_config.yml里的post_asset_folder设置为true<br><code>post_asset_folder: true</code></li>
+<li>在hexo目录下执行:<br><code>npm install hexo-asset-image --save</code></li>
+<li>在hexo目录下执行:<br><code>hexo n &quot;博客名&quot;</code><br>_post目录下会生成一个名称为”博客名.md”的博客，同时也会生成一个与博客同名的文件夹”博客名”</li>
+<li>将要上传的图片放到博客对应的文件夹下，然后在博客中使用markdown的格式引入图片<br><code>![提示信息](博客名/图片名.jpg)</code><br>提醒：这种方法只是单纯把图片显示出来，如果图片很大的话就会铺满屏幕或者超高，排版上不好看</li>
+</ol>
+<ul>
+<li>通过img标签控制宽高<br><code>&lt;img src=&quot;hexo博客引入图片/Daniel.jpg&quot; width=&quot;460px&quot; height=&quot;690px&quot; /&gt;</code></li>
+<li>通过 div 标签和 align 属性控制对齐方式<br><code>&lt;div align=&quot;center&quot;&gt;</code><br><code>&lt;img src=&quot;hexo博客引入图片/Daniel.jpg&quot; width=&quot;460px&quot; height=&quot;690px&quot; /&gt;</code><br><code>&lt;/div&gt;</code></li>
+</ul>
+<ol start="5">
+<li>hexo g部署之后，进入public\2019\06\12\博客名\index.html文件中查看<br>html标签内的语句是<code>&lt;img src=&quot;2019/06/12/博客名/图片名.jpg&quot;&gt;</code><br>而不是<code>&lt;img src=&quot;博客名/图片名.jpg&gt;</code></li>
+<li>这里碰到一个问题，无论本地还是线上，生成的index.html生成的img标签是<code>&lt;img src=&quot;/.io//图片名.jpg&quot;&gt;</code>，怀疑是hexo-asset-image版本的问题。查看我的hexo-asset-image版本是1.0.0，选择降低版本后问题解决<br><code>npm install hexo-asset-image@0.0.3 --save</code></li>
+</ol>
+<hr>
+<p>来张Daniel的帅照~~~</p>
+<div align="center"><br><img src="/2019/06/12/hexo-blog-introduces-images/hexo博客引入图片/Daniel.jpg" width="460px" height="690px" alt="不好啦，图片不见啦~~" title="你是我的粉丝吗"><br></div>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-15T08:51:33.816Z" itemprop="dateUpdated">2019-06-15 16:51:33</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/06/12/hexo-blog-introduces-images/" target="_blank" rel="external">http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://javahikers.github.io">
+            <img src="/img/logoliu.jpg" alt="liux">
+            liux
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装部署/">安装部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/&title=《hexo博客引入图片》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/&title=《hexo博客引入图片》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo博客引入图片》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/14/idea-builds-maven-multi-module-project/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">IDEA搭建maven多模块module项目</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">如何解决IDEA启动过慢的问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        爱你哟~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatliu.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatliu.jpg" data-alipay="/img/alipayliu.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liux &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/&title=《hexo博客引入图片》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/&title=《hexo博客引入图片》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo博客引入图片》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3aMZYiMQwEUO5/6d1ks3nTVEk2S/A74jEM7d+BJUp+veLrz4+r/d/fXv/8zuT14QsPDw9vvfTfbvm8lOdv++0zz+88P6bkXnh4eHj3ePmG/vy/z4tO7vL8UNr14OHh4X0Db7atR0sZteZ4eHh438973vQ3DXoeRuDh4eF9Ay9Z0Kx1ni33P2QteHh4eDFvP8T6/Osr8z08PDy89VQ933DzBjpvyg+sFg8PD+8Cr41cN41vG+luvgcPDw/vHi8fZc22/nxDf/78sLnHw8PD+wgvPxyQB6ztwCwvFa9NNcPDw8Nb8JKtfPbXWXM8+3zxWwEPDw9vwZuN8/MykC+lLQPFMAwPDw/vMi/ZmmflZBYoHDh6hYeHh3eN147w8/fbMGI/MBvO7vDw8PBK3nDIFABmyLwFf3NfPDw8vKO8dtC1aaCTxeWPLIoq8PDw8C7w8mKQH5w6Fc62YQQeHh7eJ3ntdpwHu200XIy1goeFh4eHd4+3WdbsYEHSoO8DCzw8PLx7vLOjr3yzzkdf7QqLkxF4eHh4C94sbtg30PlYaxgH4+Hh4V3mzZrjtsnOg+PkLgcOEODh4eEteO3IKo+DN4Wnbbvf1D08PDy8Na9ti5Mte9OOb+IPPDw8vM/wkoFTHZ6W5SEJdmfv4OHh4d3mzVrbTVA7O5RQHNXCw8PDu8Zrf9i3pDxQmLXdb7IWPDw8vAu8ti1uy0wbcMyuegCGh4eHV/L2A6rk822x2Y/B/v0VDw8P7wJv37bOot4kyMhfv07VEzw8PLyYNzsItRn5z44aJIUn+sWAh4eHd4iXN7izBjovDGcLGB4eHt438JJdNxpNlQ90GAfj4eHhfQFvRs2b+LztHh66wsPDwzvEyxvffLjVHjVoi8fhrAUPDw/v0FQ9WXTCznfsDX6VYeDh4eG9v/4CnFPPFEKq7rsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1277350950&web_id=1277350950')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

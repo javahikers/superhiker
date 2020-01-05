@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?1c9123028e7e5abc8faae65d030b496e"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="HHaynQDbWoNBIm4JhtWmdzRe5CweKqUcxGjs3zqzRQU">
+    
+    
+    
+    
+    <title>Elasticsearch5.6.9-查询操作 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Elasticsearch">
+    <meta name="description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
+<meta name="keywords" content="Elasticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elasticsearch5.6.9-查询操作">
+<meta property="og:url" content="http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/index.html">
+<meta property="og:site_name" content="Javahiker&#39;s Homepage">
+<meta property="og:description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/001.png">
+<meta property="og:updated_time" content="2020-01-05T07:33:01.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Elasticsearch5.6.9-查询操作">
+<meta name="twitter:description" content="建索引logstash建索引 去json数据生成网站生成的json格式的数据生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击下载数据 通过logstash导入json数据到Elasticsearch，参考我的博文Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch  使用_bulk api 建立索引 去官网下载数据acco">
+<meta name="twitter:image" content="http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/001.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/logoliu.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brandliu.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logoliu.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liux</h5>
+          <a href="mailto:675435543@qq.com" title="675435543@qq.com" class="mail">675435543@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://github.com/javahikers" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Elasticsearch5.6.9-查询操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Elasticsearch5.6.9-查询操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-13T11:16:13.000Z" itemprop="datePublished" class="page-time">
+  2019-07-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/分布式/">分布式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#建索引"><span class="post-toc-number">1.</span> <span class="post-toc-text">建索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#logstash建索引"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">logstash建索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-bulk-api-建立索引"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用_bulk api 建立索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列出所有索引"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">列出所有索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简单查询"><span class="post-toc-number">2.</span> <span class="post-toc-text">简单查询</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#条件查询"><span class="post-toc-number">3.</span> <span class="post-toc-text">条件查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#match-all"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">match_all</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#match"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">match</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#聚合查询"><span class="post-toc-number">4.</span> <span class="post-toc-text">聚合查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#aggs-gt-terms"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">aggs-&gt;terms</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#aggs-gt-stats"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">aggs-&gt;stats</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-elasticsearch-query-operations" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Elasticsearch5.6.9-查询操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-13 19:16:13" datetime="2019-07-13T11:16:13.000Z" itemprop="datePublished">2019-07-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/分布式/">分布式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="建索引"><a href="#建索引" class="headerlink" title="建索引"></a>建索引</h1><h2 id="logstash建索引"><a href="#logstash建索引" class="headerlink" title="logstash建索引"></a>logstash建索引</h2><ul>
+<li>去<a href="https://www.json-generator.com" target="_blank" rel="noopener">json数据生成网站</a>生成的json格式的数据<br>生成的数据不能直接使用，需要手动加工一下，我已经加工好了，可以点击<a href="/download/generated.rar">下载数据</a></li>
+<li>通过logstash导入json数据到Elasticsearch，参考我的博文<a href="http://javahikers.github.io/2019/07/14/logstash-reads-json-formatted-file-data/">Elasticsearch5.6.9-logstash读取json格式文件数据导入到Elasticsearch</a></li>
+</ul>
+<h2 id="使用-bulk-api-建立索引"><a href="#使用-bulk-api-建立索引" class="headerlink" title="使用_bulk api 建立索引"></a>使用_bulk api 建立索引</h2><ul>
+<li>去官网下载数据<a href="https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json" target="_blank" rel="noopener">accounts.json</a><pre><code>curl -O https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json
+</code></pre></li>
+<li>命令行建索引<pre><code>curl -H &apos;Content-Type: application/json&apos; -XPOST &apos;localhost:9200/javahikers/acount/_bulk?pretty&amp;refresh&apos; --data-binary &apos;@accounts.json&apos;
+</code></pre></li>
+<li>或者postman工具建索引<div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/07/13/elasticsearch-query-operations/001.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div>
+
+</li>
+</ul>
+<h2 id="列出所有索引"><a href="#列出所有索引" class="headerlink" title="列出所有索引"></a>列出所有索引</h2><p>GET请求postman <code>http://localhost:9200/_cat/indices?v</code><br>GET请求kibana <code>GET /_cat/indices?v</code>,可以省略前面的ip和端口，默认连接本地9200端口,后面介绍都将通过kibana给es发送请求</p>
+<pre><code>health status index            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+green  open   javahikers       OToEZOxvSbWJVtlEpGVOGg   5   1       1000            0      1.2mb        664.8kb
+green  open   logstashjsontest 7UZWLq26QTyDdVW2QczuyA   5   1         12            0    164.8kb         82.4kb
+</code></pre><p><a href="https://www.cnblogs.com/pilihaotian/p/5830754.html" target="_blank" rel="noopener">ElasticSearch 索引查询使用指南</a></p>
+<h1 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h1><p>GET请求 <code>GET javahikers/acount/400</code></p>
+<h1 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h1><p>POST请求 <code>POST javahikers/_search</code><br>下面统一通过 REST request body发送查询参数</p>
+<h2 id="match-all"><a href="#match-all" class="headerlink" title="match_all"></a>match_all</h2><p>查询所有，from起始数据下标，数据下标是从0开始。size返回数据条数。<br>不写from和size默认返回前10条数据</p>
+<pre><code>POST javahikers/_search
+{
+    &quot;query&quot;: {
+        &quot;match_all&quot;: {}
+    },
+    &quot;from&quot;: 0,
+    &quot;size&quot;: 1
+}
+</code></pre><p>返回结果，根据字段名可以知道其含义<br>took单位毫秒，hits返回的数据</p>
+<pre><code>{
+    &quot;took&quot;: 8,
+    &quot;timed_out&quot;: false,
+    &quot;_shards&quot;: {
+        &quot;total&quot;: 5,
+        &quot;successful&quot;: 5,
+        &quot;skipped&quot;: 0,
+        &quot;failed&quot;: 0
+    },
+    &quot;hits&quot;: {
+        &quot;total&quot;: 1000,
+        &quot;max_score&quot;: 1,
+        &quot;hits&quot;: [
+            {
+                &quot;_index&quot;: &quot;javahikers&quot;,
+                &quot;_type&quot;: &quot;acount&quot;,
+                &quot;_id&quot;: &quot;25&quot;,
+                &quot;_score&quot;: 1,
+                &quot;_source&quot;: {
+                    &quot;account_number&quot;: 25,
+                    &quot;balance&quot;: 40540,
+                    &quot;firstname&quot;: &quot;Virginia&quot;,
+                    &quot;lastname&quot;: &quot;Ayala&quot;,
+                    &quot;age&quot;: 39,
+                    &quot;gender&quot;: &quot;F&quot;,
+                    &quot;address&quot;: &quot;171 Putnam Avenue&quot;,
+                    &quot;employer&quot;: &quot;Filodyne&quot;,
+                    &quot;email&quot;: &quot;virginiaayala@filodyne.com&quot;,
+                    &quot;city&quot;: &quot;Nicholson&quot;,
+                    &quot;state&quot;: &quot;PA&quot;
+                }
+            }
+        ]
+    }
+}
+</code></pre><h2 id="match"><a href="#match" class="headerlink" title="match"></a>match</h2><p>带有sort时，查询结果里面_score字段会变成null</p>
+<pre><code>POST javahikers/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;address&quot;: &quot;Avenue&quot;
+    }
+  },
+  &quot;sort&quot;: [
+    {
+      &quot;age&quot;: {
+        &quot;order&quot;: &quot;desc&quot;
+      }
+    }
+  ]
+}
+</code></pre><h1 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h1><h2 id="aggs-gt-terms"><a href="#aggs-gt-terms" class="headerlink" title="aggs-&gt;terms"></a>aggs-&gt;terms</h2><pre><code>POST javahikers/_search
+{
+  &quot;aggs&quot;: {
+    &quot;group_by_account_number&quot;: {
+      &quot;terms&quot;: {
+        &quot;field&quot;: &quot;age&quot;
+      }
+    },
+    &quot;group_by_balance&quot;: {
+      &quot;terms&quot;: {
+        &quot;field&quot;: &quot;balance&quot;
+      }
+    }
+  }
+}
+</code></pre><p>group_by_account_number的查询结果里面，可以看出默认获取排名前10的分组数数据，<br>这些分组数据数量+doc_count_error_upper_bound+sum_other_doc_count等于全部文档数量</p>
+<pre><code>&quot;doc_count_error_upper_bound&quot;: 0,
+&quot;sum_other_doc_count&quot;: 463,
+</code></pre><h2 id="aggs-gt-stats"><a href="#aggs-gt-stats" class="headerlink" title="aggs-&gt;stats"></a>aggs-&gt;stats</h2><pre><code>POST javahikers/_search
+{
+  &quot;aggs&quot;: {
+    &quot;age_count&quot;: {
+      &quot;stats&quot;: {
+        &quot;field&quot;: &quot;age&quot;
+      }
+    }
+  }
+}
+</code></pre><p>查询结果里面，包含了age的最小值，最大值，平均值和总和的计算</p>
+<pre><code>&quot;aggregations&quot;: {
+  &quot;age_count&quot;: {
+    &quot;count&quot;: 1000,
+    &quot;min&quot;: 20,
+    &quot;max&quot;: 40,
+    &quot;avg&quot;: 30.171,
+    &quot;sum&quot;: 30171
+  }
+}
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-05T07:33:01.112Z" itemprop="dateUpdated">2020-01-05 15:33:01</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/07/13/elasticsearch-query-operations/" target="_blank" rel="external">http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://javahikers.github.io">
+            <img src="/img/logoliu.jpg" alt="liux">
+            liux
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/14/elasticsearch-cluster-installed-for-windows-services/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Elasticsearch5.6.9-elasticsearch集群安装为windows服务</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/12/elasticsearch-basic-usage/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Elasticsearch5.6.9-基本用法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        爱你哟~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatliu.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatliu.jpg" data-alipay="/img/alipayliu.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liux &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/&title=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Elasticsearch5.6.9-查询操作》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/07/13/elasticsearch-query-operations/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aQU4DMQwF0Ln/pWHDAgSdftsxaqWXVUXbmbwgTdJvX1c8Pn6N739PPn8/8m9dGwMPDw9vPPX7G/+G3U/i/lvJ9ZM7PlwCPDw8vDXeoydqfrN8I6kuU3VDwsPDw3s1XnKb3qL05oCHh4f3jrwkMsiP4Hh4eHjvwkvCiDwvTd6dTH0la8HDw8NbqCK9zuuV+h4eHh7euKqelLXyx30vsBjNFg8PD2+BNz8uT8pX84WI5omHh4e3xusFtTm413BwoIEADw8Pb4GXTytfiGqcMb/yk20DDw8P7xAvDxp6x9lTLQL5DJ/seHh4eHhjXnKDvLpUbQLogUfFMDw8PLw13jwgqAYW1S2hvD3g4eHhLfB65fxe6at3cE9aGZqbBB4eHt6AN2mByqdVbeGqLhMeHh7eHi+PA6oxQYLPP5O/vqq7GR4eHl6LlzyO80J+dXvYaOH6eo2Hh4e3wKteaD6V8sP9ULkODw8P7ywvjwZ6pf1eGFFttCpU9vDw8PAGvOqjv1q8n7N7zQc/fjHg4eHhHeVVw4JJIT8va00aEZ6EEXh4eHhj3v2xdRLR3n+m+XCPt6votwIeHh7egJfHr8kk8gasXqGrEOzi4eHh/SOvWpTKSdU7JhvVwyvg4eHhLfCaR9VWyFttL8i3kOhYj4eHh3eUVw1h59tGfkA/EJ3g4eHhLfPKHVvxpA8ci+NyXdR6hYeHh3eIVy1xTeKMHD8aeHh4eAuwfEyC2rx41nv3j38YHh4e3gKv94xNnrp5GpCEs5PiHB4eHt4GL5loHuxWF6LaWFBu9sLDw8Nb41Wj1WoTQK8R4UCwgoeHh/cyvOTYnUcVVfzhbjI8PDy8Zd4k/M03j3yZngS7eHh4eGu8vIi18W6+rOUWBDw8PLwFXvVHfn6b6sZwvxlcewMPDw8vHZ/pLVS5VFsPkAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1277350950&web_id=1277350950')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

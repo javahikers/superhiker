@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142124449-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?1c9123028e7e5abc8faae65d030b496e"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="HHaynQDbWoNBIm4JhtWmdzRe5CweKqUcxGjs3zqzRQU">
+    
+    
+    
+    
+    <title>hexo个人博客收录谷歌的详细过程 | Javahiker&#39;s Homepage | 每天积累一点点！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="使用教程,Hexo">
+    <meta name="description" content="登录google账户进入 Google Search Console，点击立即使用。                                                                                                              没有google账号，先注册一个google账号 有google账户，输入账户名和密码，登录go">
+<meta name="keywords" content="使用教程,Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo个人博客收录谷歌的详细过程">
+<meta property="og:url" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/index.html">
+<meta property="og:site_name" content="Javahiker&#39;s Homepage">
+<meta property="og:description" content="登录google账户进入 Google Search Console，点击立即使用。                                                                                                              没有google账号，先注册一个google账号 有google账户，输入账户名和密码，登录go">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/001.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/002.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/003.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/004.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/005.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/005_02.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/006.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/007.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/008.png">
+<meta property="og:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/009.png">
+<meta property="og:updated_time" content="2020-01-05T07:04:03.530Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo个人博客收录谷歌的详细过程">
+<meta name="twitter:description" content="登录google账户进入 Google Search Console，点击立即使用。                                                                                                              没有google账号，先注册一个google账号 有google账户，输入账户名和密码，登录go">
+<meta name="twitter:image" content="http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/001.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Javahiker&#39;s Homepage" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/logoliu.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brandliu.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logoliu.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liux</h5>
+          <a href="mailto:675435543@qq.com" title="675435543@qq.com" class="mail">675435543@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://github.com/javahikers" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">hexo个人博客收录谷歌的详细过程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">hexo个人博客收录谷歌的详细过程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-16T08:10:55.000Z" itemprop="datePublished" class="page-time">
+  2019-06-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#登录google账户"><span class="post-toc-number">1.</span> <span class="post-toc-text">登录google账户</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#验证网站所有权"><span class="post-toc-number">2.</span> <span class="post-toc-text">验证网站所有权</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式一，通过HTML文件验证"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">验证方式一，通过HTML文件验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式二，通过HTML标记验证"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">验证方式二，通过HTML标记验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证方式三，通过Google-Analytics-验证"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">验证方式三，通过Google Analytics 验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三种验证方式对比"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">三种验证方式对比</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用站点地图"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用站点地图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装sitemap站点地图自动生成插件"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装sitemap站点地图自动生成插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加站点地图配置到hexo"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">添加站点地图配置到hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置google的robots-txt测试工具"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">配置google的robots.txt测试工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过hexo部署文件到个人网站"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">通过hexo部署文件到个人网站</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用robots-txt测试工具"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">使用robots.txt测试工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提交站点地图给google"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">提交站点地图给google</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-personal-blog-being-included-in-google" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">hexo个人博客收录谷歌的详细过程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-16 16:10:55" datetime="2019-06-16T08:10:55.000Z" itemprop="datePublished">2019-06-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="登录google账户"><a href="#登录google账户" class="headerlink" title="登录google账户"></a>登录google账户</h1><p>进入 <a href="https://search.google.com/search-console/about" title="google的SearchConsole" target="_blank" rel="noopener">Google Search Console</a>，点击立即使用。</p>
+<div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/001.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div>
+
+<ul>
+<li>没有google账号，先注册一个google账号</li>
+<li>有google账户，输入账户名和密码，登录google账户</li>
+</ul>
+<hr>
+<h1 id="验证网站所有权"><a href="#验证网站所有权" class="headerlink" title="验证网站所有权"></a>验证网站所有权</h1><p>添加资源到 <a href="https://search.google.com/search-console/about" title="google的SearchConsole" target="_blank" rel="noopener">Google Search Console</a> 平台，资源类型选网址前缀，点继续</p>
+<div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/002.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div>
+
+<hr>
+<h2 id="验证方式一，通过HTML文件验证"><a href="#验证方式一，通过HTML文件验证" class="headerlink" title="验证方式一，通过HTML文件验证"></a>验证方式一，通过HTML文件验证</h2><p>原理：google给你一个html文件，你把它放到你的网站首页的根路径下，证明网站是你的<br>步骤：</p>
+<ol>
+<li>下载google提供的html文件，文件名googlexxxx.html 跟实际下载的文件名保持一致</li>
+<li>放到hexo工程目录下的source目录</li>
+<li><p>进入到工程目录，通过以下命令将hexo部署到个人网站</p>
+<pre><code>$ hexo clean 
+$ hexo g
+$ cp source/googlexxxx.html public/
+$ hexo d
+</code></pre></li>
+</ol>
+<p>说明：<br>hexo会将source目录下的文件googlexxxx.html打包到public目录。<br>这个过程中googlexxxx.html的内容被hexo修改了，如果直接部署到我们的网站，google那边会验证不通过。而打包的过程中是不会修改source下的googlexxxx.html文件的，所以可以通过命令行将未被修改的文件googlexxxx.html拷贝过去。这样就能通过google的验证了。</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/003.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div><br>看到这里，恭喜你通过了google的所以权验证了。</p>
+<hr>
+<h2 id="验证方式二，通过HTML标记验证"><a href="#验证方式二，通过HTML标记验证" class="headerlink" title="验证方式二，通过HTML标记验证"></a>验证方式二，通过HTML标记验证</h2><p>原理跟上面类似<br>步骤：</p>
+<ol>
+<li>复制标记里面的content的内容</li>
+<li>打开hexo-&gt;themes-&gt;indigo-&gt;_config.yml</li>
+<li><p>找到google_site_verification这个配置项，配置content的内容</p>
+<pre><code>google_site_verification: 这里放content的内容
+</code></pre></li>
+<li><p>进入到工程目录，通过以下命令将hexo部署到个人网站</p>
+<pre><code>$ hexo clean 
+$ hexo g
+$ hexo d
+</code></pre></li>
+</ol>
+<p>说明:<br>我这里用的hexo主题是indigo，分支是card。下载indigo，请访问 <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">indigo</a><br>content的内容在下面哦</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/004.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<h2 id="验证方式三，通过Google-Analytics-验证"><a href="#验证方式三，通过Google-Analytics-验证" class="headerlink" title="验证方式三，通过Google Analytics 验证"></a>验证方式三，通过Google Analytics 验证</h2><p>原理同上<br>步骤：</p>
+<ol>
+<li>去 <a href="https://analytics.google.com" target="_blank" rel="noopener">google分析官网</a> 注册账户</li>
+<li>页面会生成一个”跟踪ID”</li>
+<li>打开hexo-&gt;themes-&gt;indigo-&gt;_config.yml</li>
+<li><p>找到google_analytics这个配置项，配置”跟踪ID”的内容</p>
+<pre><code>google_analytics: 这里放&quot;跟踪ID&quot;的内容
+</code></pre></li>
+<li><p>进入到工程目录，通过以下命令将hexo部署到个人网站</p>
+<pre><code>$ hexo clean 
+$ hexo g
+$ hexo d
+</code></pre></li>
+</ol>
+<p>当看到下面这张图时，说明你三种方式都通过验证了，是不是很喜庆的画面。其实用一种方式验证就够了。这样做的目的只是为了证明这个网站确实是你的。</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/005.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<h2 id="三种验证方式对比"><a href="#三种验证方式对比" class="headerlink" title="三种验证方式对比"></a>三种验证方式对比</h2><ul>
+<li>第1种方式每次部署前需要将googlexxxx.html拷贝到public目录，多了一步操作</li>
+<li>第2种和第3种方式配置好，以后就不用动了，推荐使用这两种方式哦</li>
+</ul>
+<hr>
+<h1 id="使用站点地图"><a href="#使用站点地图" class="headerlink" title="使用站点地图"></a>使用站点地图</h1><h2 id="安装sitemap站点地图自动生成插件"><a href="#安装sitemap站点地图自动生成插件" class="headerlink" title="安装sitemap站点地图自动生成插件"></a>安装sitemap站点地图自动生成插件</h2><pre><code>npm install hexo-generator-sitemap --save
+npm install hexo-generator-baidu-sitemap --save
+</code></pre><h2 id="添加站点地图配置到hexo"><a href="#添加站点地图配置到hexo" class="headerlink" title="添加站点地图配置到hexo"></a>添加站点地图配置到hexo</h2><ul>
+<li>找hexo根目录下的_config.yml文件</li>
+<li><p>添加以下配置</p>
+<pre><code># 自动生成sitemap
+sitemap: 
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+</code></pre></li>
+</ul>
+<h2 id="配置google的robots-txt测试工具"><a href="#配置google的robots-txt测试工具" class="headerlink" title="配置google的robots.txt测试工具"></a>配置google的robots.txt测试工具</h2><p>在hexo工程的source文件夹下新建文件robots.txt，内容如下</p>
+<pre><code># hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /about/
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+
+Disallow: /assets/
+Disallow: /img/
+Disallow: /js/
+Disallow: /css/
+Disallow: /links/
+
+Sitemap: http://javahikers.github.io/sitemap.xml
+Sitemap: http://javahikers.github.io/baidusitemap.xml
+</code></pre><p>robots.txt文件的内容要根据public下的目录结构填写。Allow表示允许google访问的页面，Disallow表示不允许google访问的页面。可参考我的目录结构和上面的对应关系，根据需要配置</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/005_02.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<h2 id="通过hexo部署文件到个人网站"><a href="#通过hexo部署文件到个人网站" class="headerlink" title="通过hexo部署文件到个人网站"></a>通过hexo部署文件到个人网站</h2><pre><code>$ hexo clean 
+$ hexo g
+$ hexo d
+</code></pre><p>说明:<br>hexo g命令会在hexo的public目录自动生成站点地图文件sitemap.xml和baidusitemap.xml<br>同时会将source目录下的文件robots.txt拷贝至public目录。个人网站部署之后，可通过<br>域名/sitemap.xml，域名/robots.txt的方式验证站点地图文件和访问限控制的配置文件是否上传成功了。</p>
+<h2 id="使用robots-txt测试工具"><a href="#使用robots-txt测试工具" class="headerlink" title="使用robots.txt测试工具"></a>使用robots.txt测试工具</h2><p>前面部署成功之后，才能使用robots.txt测试工具。进入 <a href="https://search.google.com/search-console/about" title="google的SearchConsole" target="_blank" rel="noopener">Google Search Console</a> 平台，新版本的Search Console平台目前还没有看到robots.txt测试工具这一项，选择切换到旧版，才能找到这一配置项</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/006.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<p>选择 抓取-&gt;robots.txt测试工具，在这里可以测试网址是否遭到阻止</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/007.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<h2 id="提交站点地图给google"><a href="#提交站点地图给google" class="headerlink" title="提交站点地图给google"></a>提交站点地图给google</h2><p>终于等到你了哦，提交站点地图到google，等待google收录吧</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/008.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+<p>google收录非常的快哦，site:个人网址  即可验证是否被收录。写到这里已经被google收录啦。开心ing！！！你也来试试吧！</p>
+<p><div><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/personal-blog-being-included-in-google/git-is-configured-with-multiple-ssh-keys/009.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br></div></p>
+<hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-05T07:04:03.530Z" itemprop="dateUpdated">2020-01-05 15:04:03</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/06/16/personal-blog-being-included-in-google/" target="_blank" rel="external">http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://javahikers.github.io">
+            <img src="/img/logoliu.jpg" alt="liux">
+            liux
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/使用教程/">使用教程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/&title=《hexo个人博客收录谷歌的详细过程》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/&title=《hexo个人博客收录谷歌的详细过程》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo个人博客收录谷歌的详细过程》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/22/installs-both-mysql5.7-and-mysql8.0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">windows环境同时安装mysql5.7和mysql8.0详细教程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/15/hexo-inserts-tables-in-a-variety-of-ways/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hexo插入表格的多种方式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        爱你哟~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatliu.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatliu.jpg" data-alipay="/img/alipayliu.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liux &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/&title=《hexo个人博客收录谷歌的详细过程》 — Javahiker's Homepage&pic=http://javahikers.github.io/img/logoliu.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/&title=《hexo个人博客收录谷歌的详细过程》 — Javahiker's Homepage&source=java知识点整理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo个人博客收录谷歌的详细过程》 — Javahiker's Homepage&url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/&via=http://javahikers.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3a0WrDMAwF0P3/T2+vhZHkSrJGBidPJW0dHxcsV9LXV3x9f1xX93+/+/mZyZj34x+48PDw8AZTvxru6s495n6c+9Hu7xSWAA8PD2+Nl0z0/nU+rXxx8+de3sfDw8N7Da8XNnJ27/N4eHh4/4XX2+KTFMMrAgMeHh7eIBkxeZ2neqtpjmO5Fjw8PLyFKtJ7Xq/U9/Dw8PDGVfXqgTg5aleXcjRbPDw8vAVeNYWaH7iTFEO+6ecLhIeHh/c3vPkkeiEhCTnVwlvh8I2Hh4fX4iVFrGpJbLIEk2ATnc3x8PDwxrwcmR+p50fhXjPWQ30PDw8P7xAvDwPzwFBlVOdW/lnx8PDwWrycUW2WmiPzY325AIaHh4c34OUp1Dy9O09G5AHmIVTg4eHh/Tlvcj9vO8ifUr2Dh4eHt8GrHpGTg3WvpSAZIQ9FeHh4eNu8/O993vaU51fzBc2ReHh4eNu8auJ10kTVS/smAeNhBDw8PLyjvPl2PCmhJdPtJTLw8PDwNni9o3ASWuakfPkuP4+Hh4e3wOuVrHrpiWrxbBKi8PDw8PZ4vZJSL516KhlRKMLh4eHhrfHy42kvAFTTwYUmqvvn4uHh4S3w8l30bEksr8tVF/GhDIaHh4d3lNc7LveCR7JAkxBS+A3x8PDwWrx8sy6UnYqbeB4kknRJsz8LDw8Pr8XLN/1qyaraRjA50F8GBjw8PLyjvGpKoseYkHrtX3h4eHhned/FK0nLVgNGDq6GGTw8PLwNXnWrTR6fh5D7755q0sLDw8Pb4FU3+mQjzstavXJaIWzg4eHhrfGqBadJY0G5o6GXZcHDw8N7JS8v6s8bC6rfwsPDw3sb72xraS/JGyV28fDw8NZ4vaJXc7MuJoiTn+Hyu3h4eHgLvOqf/LNLMAk/h+t7eHh4eM/XD4oEnHF7h14kAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1277350950&web_id=1277350950')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
