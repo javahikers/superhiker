@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/</loc>
+    
+    <lastmod>2020-01-05T08:35:18.393Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://javahikers.github.io/2019/12/08/teach-you-to-trade-stock-audio-summary1-108/</loc>
     
     <lastmod>2020-01-05T08:10:45.026Z</lastmod>
@@ -243,13 +250,6 @@
     <loc>http://javahikers.github.io/about/index.html</loc>
     
     <lastmod>2019-06-15T08:51:33.823Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/</loc>
-    
-    <lastmod>2019-06-15T08:51:33.816Z</lastmod>
     
   </url>
   

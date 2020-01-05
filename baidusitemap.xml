@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/</loc>
+    <lastmod>2020-01-05</lastmod>
+  </url>  <url>
     <loc>http://javahikers.github.io/2019/12/08/teach-you-to-trade-stock-audio-summary1-108/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
@@ -93,8 +96,5 @@
   </url>  <url>
     <loc>http://javahikers.github.io/2019/07/12/elasticsearch-basic-concepts/</loc>
     <lastmod>2019-11-15</lastmod>
-  </url>  <url>
-    <loc>http://javahikers.github.io/2019/06/12/hexo-blog-introduces-images/</loc>
-    <lastmod>2019-06-15</lastmod>
   </url>
 </urlset>
