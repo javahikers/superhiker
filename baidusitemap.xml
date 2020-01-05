@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/</loc>
+    <lastmod>2020-01-05</lastmod>
+  </url>  <url>
     <loc>http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
@@ -35,9 +38,6 @@
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/06/15/hexo-inserts-the-aplayer-in-the-article/</loc>
-    <lastmod>2020-01-05</lastmod>
-  </url>  <url>
-    <loc>http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/06/15/git-is-configured-with-multiple-ssh-keys/</loc>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/</loc>
+    
+    <lastmod>2020-01-05T07:50:37.524Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://javahikers.github.io/2019/05/05/resolve-the-problem-of-idea-starting-too-slowly/</loc>
     
     <lastmod>2020-01-05T07:37:18.080Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://javahikers.github.io/2019/06/15/hexo-inserts-the-aplayer-in-the-article/</loc>
     
     <lastmod>2020-01-05T07:06:07.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/</loc>
-    
-    <lastmod>2020-01-05T07:04:03.530Z</lastmod>
     
   </url>
   
