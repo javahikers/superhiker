@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/</loc>
+    
+    <lastmod>2021-01-22T06:31:28.159Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://javahikers.github.io/2019/12/08/teach-you-to-trade-stocks91-100/</loc>
     
     <lastmod>2020-10-19T01:02:28.846Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://javahikers.github.io/2019/07/14/logstash-reads-json-formatted-file-data/</loc>
     
     <lastmod>2020-10-19T00:49:29.072Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/</loc>
-    
-    <lastmod>2020-10-19T00:49:23.632Z</lastmod>
     
   </url>
   

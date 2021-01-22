@@ -52,7 +52,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/006.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/007.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/008.png">
-<meta property="og:updated_time" content="2020-10-19T00:49:23.632Z">
+<meta property="og:updated_time" content="2021-01-22T06:31:28.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows环境同时安装mysql5.7和mysql8.0详细教程">
 <meta name="twitter:description" content="下载版本官网下载两个不同的版本进入mysql官网，页面导航 DOWNLOADS=&amp;gt;Mysql Community Server                                                                                                              下载最新版本，目前是8.0.16，根据自己电脑配">
@@ -304,7 +304,7 @@ C:\Users\javahiker&gt;taskkill -f -pid 3752
 原因: 拒绝访问。
 C:\WINDOWS\system32&gt;taskkill -f -pid 3752
 成功: 已终止 PID 为 3752 的进程。
-</code></pre><p>解释：<br>netstat命令查看程序端口为3306的父进程端口为3752<br>tasklist命令查看程序mysql.exe的父进程端口为3752<br>taskkill命令将父进程端口为3752的程序杀死<br>第一次没能杀死进程，因为是普通用户。第二次”以管理员身份运行”cmd，能成功杀死进程<br>进程被杀之后可以在”服务”里重新启动程序。如果设置了程序启动类型为”自动”，下次电脑重启时，程序会自动启动。</p>
+</code></pre><p>解释：<br>netstat命令查看程序端口为3306的进程号（PID）为3752<br>tasklist命令查看程序mysql.exe的进程号为3752<br>taskkill命令将进程号为3752的程序杀死<br>第一次没能杀死进程，因为是普通用户。第二次”以管理员身份运行”cmd，能成功杀死进程<br>进程被杀之后可以在”服务”里重新启动程序。如果设置了程序启动类型为”自动”，下次电脑重启时，程序会自动启动。</p>
 <h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>如果要同时配置两个版本的mysql，这一部分请直接跳过。</p>
 <ul>
 <li>右键点击我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;新建</li>
@@ -402,7 +402,7 @@ Query OK, 0 rows affected (0.00 sec)
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-19T00:49:23.632Z" itemprop="dateUpdated">2020-10-19 08:49:23</time>
+    最后更新时间：<time datetime="2021-01-22T06:31:28.159Z" itemprop="dateUpdated">2021-01-22 14:31:28</time>
 </span><br>
 
 
@@ -578,7 +578,7 @@ Query OK, 0 rows affected (0.00 sec)
         </p>
     </div>
     <div class="bottom">
-        <p><span>javahiker &copy; 2015 - 2020</span>
+        <p><span>javahiker &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/</loc>
+    <lastmod>2021-01-22</lastmod>
+  </url>  <url>
     <loc>http://javahikers.github.io/2019/12/08/teach-you-to-trade-stocks91-100/</loc>
     <lastmod>2020-10-19</lastmod>
   </url>  <url>
@@ -53,9 +56,6 @@
     <lastmod>2020-10-19</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/07/14/logstash-reads-json-formatted-file-data/</loc>
-    <lastmod>2020-10-19</lastmod>
-  </url>  <url>
-    <loc>http://javahikers.github.io/2019/06/22/installs-both-mysql5.7-and-mysql8.0/</loc>
     <lastmod>2020-10-19</lastmod>
   </url>  <url>
     <loc>http://javahikers.github.io/2019/07/14/install-logstash-on-windows/</loc>
