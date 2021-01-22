@@ -47,7 +47,7 @@ ga('send', 'pageview');
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://javahikers.github.io/2019/07/10/elasticsearch-install-and-use/001.png">
 <meta property="og:image" content="http://javahikers.github.io/2019/07/10/elasticsearch-install-and-use/002.png">
-<meta property="og:updated_time" content="2020-10-19T00:48:38.448Z">
+<meta property="og:updated_time" content="2021-01-22T06:46:21.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch5.6.9-安装使用">
 <meta name="twitter:description" content="本文以windows环境为例，介绍Elasticsearch的安装使用，linux环境请下载tar包，并在linux环境通过命令行解压 elasticsearch单实例和相关插件的安装elasticsearch下载安装去官网下载安装版本5.6.9，跟着官网教程将工程跑起来  解压之后，启动bin目录下的脚本elasticsearch.bat 页面访问http://localhost:9200">
@@ -270,7 +270,7 @@ node.master: false
 network.host: 127.0.0.1
 http.port: 9202
 discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]
-</code></pre><p>配置说明：cluster.name集群名称。node.name节点名称。node.master为true表示自己有机会成为主节点，不配置时默认为true。network.host绑定ip，如果不配置默认绑定127.0.0.1。http.port绑定端口,如果不配置默认绑定9200。discovery.zen.minimum_master_nodes防止脑裂配置项，表示至少需要几个节点才能组成集群。<br>slave1和slave2指定的端口和默认端口不要冲突,启动bin目录下的脚本elasticsearch.bat，先启动master，再启动slave1和slave2，访问<code>http://localhost:9100/</code><br>每次手工启动上面3个es服务会显得很笨拙，可以将它们安装为windows服务，安装过程也很简单，请参考我的另一篇博文，<a href="https://javahikers.github.io/2019/07/14/elasticsearch-cluster-installed-for-windows-services/">《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》</a></p>
+</code></pre><p>配置说明：cluster.name集群名称。node.name节点名称。node.master为true表示自己有机会成为主节点，不配置时默认为true。network.host绑定ip，如果不配置默认绑定127.0.0.1。http.port绑定端口,如果不配置默认绑定9200。discovery.zen.minimum_master_nodes防止脑裂配置项，表示至少需要几个节点才能组成集群。<br>slave1和slave2指定的端口和默认端口不要冲突,启动bin目录下的脚本elasticsearch.bat，先启动master，再启动slave1和slave2，访问<code>http://localhost:9100/</code><br>每次手工启动上面3个es服务会显得很笨拙，可以将它们安装为windows服务，安装过程也很简单，请参考我的另一篇博文，<a href="https://javahikers.gitee.io/2019/07/14/elasticsearch-cluster-installed-for-windows-services/" target="_blank" rel="noopener">《Elasticsearch5.6.9-elasticsearch集群安装为windows服务》</a></p>
 <div><br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -301,7 +301,7 @@ http.cors.allow-origin: &quot;*&quot;
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-19T00:48:38.448Z" itemprop="dateUpdated">2020-10-19 08:48:38</time>
+    最后更新时间：<time datetime="2021-01-22T06:46:21.343Z" itemprop="dateUpdated">2021-01-22 14:46:21</time>
 </span><br>
 
 
